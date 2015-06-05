@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AudioPostDelegate <NSObject>
+
+-(void)didSelectAudio:(NSString *)audioUrl;
+
+@end
+
 @interface AudioPostViewController : UIViewController
+
+@property (assign, nonatomic) id<AudioPostDelegate> delegate;
 
 @end
