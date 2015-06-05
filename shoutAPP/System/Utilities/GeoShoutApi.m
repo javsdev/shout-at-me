@@ -23,6 +23,8 @@ static AFHTTPRequestOperationManager *manager = nil;
 
 static NSString *const URL_API = @"http://larutavcc.com/shoutapp/";
 static NSString *const BaseLocation = @"https://s3.amazonaws.com/sa-content-main/";
+static NSString *const USER_LOCATION_INFO = @"https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAxCoFOymmCjnG1QcEpNMdhCVg2TaKb-jw";
+
 
 +(void)makeApiRequestWithParameters:(NSDictionary *)parameters
                          withScript:(NSString*)script
@@ -172,6 +174,93 @@ static NSString *const BaseLocation = @"https://s3.amazonaws.com/sa-content-main
     
     [GeoShoutApi makeApiRequestWithParameters:params withScript:@"usr.php" onCompletion:completion];
 }
+
+
++(void) getUserRegionWithName:(int)filter
+                       forLat:(double)lat
+                       forLng:(double)lng
+                 onCompletion:(void(^)(Region * region))completion{
+    
+    if (!manager){
+        manager = [AFHTTPRequestOperationManager manager];
+        [manager setCompletionQueue:PROCESSING_DISPATCH];
+    }
+    
+    [Posts locInfo:lat withLat:lng onCompletion:^(RequestResult *result) {
+        if(result.success ) {
+            NSString* strAddress = @"";
+            __block int currentFilter = filter;
+            
+            if (filter == 7 && [[result.extra objectForKey:@"state"] isEqualToString:@"Hawaii"]) {
+                currentFilter = 6;
+            }
+            switch (currentFilter){
+                case 4: strAddress = [NSString stringWithFormat:@"%@ %@", strAddress, [result.extra objectForKey:@"region"]];
+                case 5: strAddress = [NSString stringWithFormat:@"%@ %@", strAddress,  [result.extra objectForKey:@"city"]];
+                case 6: strAddress = [NSString stringWithFormat:@"%@ %@", strAddress,  [result.extra objectForKey:@"state"]];
+                case 7: strAddress = [NSString stringWithFormat:@"%@ %@", strAddress,  [result.extra objectForKey:@"country"]];
+            }
+            
+            __block RequestResult * lastResult = result;
+            
+            NSDictionary * params = @{@"address" : strAddress};
+            
+            //NSString *currentURL = [NSString stringWithFormat:@"%@%@",USER_LOCATION_INFO,strAddress];
+            [manager GET:USER_LOCATION_INFO
+              parameters:params
+                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                     Region *reg = [Region new];
+                     
+                     if (currentFilter == 7 && [[lastResult.extra objectForKey:@"country"] isEqualToString:@"United States"]){
+                         reg.startLat = 44.78078;
+                         reg.startLng = -66.133751;
+                         reg.endLat = 32.290522;
+                         reg.endLng = -125.779257;
+                         
+                     }
+                     else{
+                         NSMutableDictionary *dictInfo = [NSMutableDictionary new];
+                         dictInfo = (NSMutableDictionary*)responseObject;
+                         if ([[dictInfo objectForKey:@"status"] isEqualToString:@"OK"] ) {
+                             
+                             
+                             
+                             NSDictionary *dictGeometry =[[[[dictInfo objectForKey:@"results"] objectAtIndex:0] objectForKey:@"geometry"] objectForKey:@"bounds"];
+                             
+                             reg.startLat = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lat"] floatValue];
+                             reg.startLng = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lng"] floatValue];
+                             reg.endLat = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lat"] floatValue];
+                             reg.endLng = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lng"] floatValue];
+                         }
+                         else
+                         {
+                             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                                            message:@"We Need User Location"
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                             [alert show];
+                         }
+                     }
+                     
+                     if (completion){
+                         completion(reg);
+                     }
+                 }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     if (error.code == 1009)
+                         NSLog(@"Error: %@", @"The Internet connection appears to be offline.");
+                     else
+                         NSLog(@"Error: %@", error);
+                 }];
+        }
+        else {
+            NSLog(@"%@", result.msg);
+        }
+    }];
+}
+
+
+
 @end
 
 /***********************************
@@ -420,6 +509,28 @@ contentTypeString:(NSString*)typeString
     
     [GeoShoutApi makeApiRequestWithParameters:params withScript:@"posts.php" onCompletion:completion];
 }
+
+
+
+
+
+
+
++(void) locInfo:(double)lat
+        withLat:(double)lng
+   onCompletion:(void (^)(RequestResult *))completion{
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:@"loc" forKey:@"act"];
+    [params setObject:[NSString stringWithFormat:@"%f", lat] forKey:@"lat"];
+    [params setObject:[NSString stringWithFormat:@"%f", lng] forKey:@"long"];
+    
+    [GeoShoutApi makeApiRequestWithParameters:params withScript:@"posts.php" onCompletion:completion];
+}
+
+
+
+
+
 
 @end
 

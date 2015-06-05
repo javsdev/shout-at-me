@@ -18,6 +18,7 @@
 		0498E8801B1DEABB00C41DAE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499556161B1D640C00C3D855 /* MobileCoreServices.framework */; };
 		491008271B17A96A00842C4E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 491008251B17A96A00842C4E /* MapView.m */; };
 		491008281B17A96A00842C4E /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491008261B17A96A00842C4E /* MapView.xib */; };
+		4944A83E1B214AF600C9889C /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 4944A83D1B214AF600C9889C /* Region.m */; };
 		49824F191B1EB5D50030F3AD /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0A1B1EB5D50030F3AD /* AWSAutoScaling.framework */; };
 		49824F1A1B1EB5D50030F3AD /* AWSCloudWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0B1B1EB5D50030F3AD /* AWSCloudWatch.framework */; };
 		49824F1B1B1EB5D50030F3AD /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0C1B1EB5D50030F3AD /* AWSCognito.framework */; };
@@ -149,6 +150,8 @@
 		491008241B17A96A00842C4E /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapView.h; path = MapViewTab/MapView.h; sourceTree = "<group>"; };
 		491008251B17A96A00842C4E /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapView.m; path = MapViewTab/MapView.m; sourceTree = "<group>"; };
 		491008261B17A96A00842C4E /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapView.xib; path = MapViewTab/MapView.xib; sourceTree = "<group>"; };
+		4944A83C1B214AF600C9889C /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		4944A83D1B214AF600C9889C /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		49824F0A1B1EB5D50030F3AD /* AWSAutoScaling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAutoScaling.framework; sourceTree = "<group>"; };
 		49824F0B1B1EB5D50030F3AD /* AWSCloudWatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCloudWatch.framework; sourceTree = "<group>"; };
 		49824F0C1B1EB5D50030F3AD /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
@@ -367,6 +370,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4944A83B1B214AF600C9889C /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				4944A83C1B214AF600C9889C /* Region.h */,
+				4944A83D1B214AF600C9889C /* Region.m */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		49824F091B1EB5D50030F3AD /* AWS */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +495,7 @@
 		49824F581B1EB6230030F3AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4944A83B1B214AF600C9889C /* Object */,
 				49824F591B1EB6230030F3AD /* GeoShoutApi.h */,
 				49824F5A1B1EB6230030F3AD /* GeoShoutApi.m */,
 				49824F5B1B1EB6230030F3AD /* UserLocation.h */,
@@ -914,6 +927,7 @@
 				89BE9C791B214BB4003E74B6 /* AudioPostViewController.m in Sources */,
 				49824F9E1B1EB6370030F3AD /* AFURLConnectionOperation.m in Sources */,
 				49824F6A1B1EB6230030F3AD /* Messages.m in Sources */,
+				4944A83E1B214AF600C9889C /* Region.m in Sources */,
 				49824FCD1B1EB64C0030F3AD /* Profile.m in Sources */,
 				49824F991B1EB6370030F3AD /* AFHTTPRequestOperation.m in Sources */,
 				49824FA11B1EB6370030F3AD /* AFURLSessionManager.m in Sources */,

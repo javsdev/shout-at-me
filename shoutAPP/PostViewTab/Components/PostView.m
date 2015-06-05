@@ -16,10 +16,10 @@ bool _isFaved;
 
 -(void) awakeFromNib{
     self.FollowButton.titleLabel.numberOfLines = 1;
-    self.FollowButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    //self.FollowButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     
     self.ProfileName.titleLabel.numberOfLines = 1;
-    self.FollowButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    //self.FollowButton.titleLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 -(BOOL) getIsPaired {
@@ -41,15 +41,25 @@ bool _isFaved;
     _isPaired = isPaired;
 }
 
--(void) setIsLiked:(BOOL) isLiked{
-    [self.Likes setBackgroundColor:isLiked?[UIColor blueColor]:[UIColor clearColor]];
-    [self.Likes setTitleColor:isLiked?[UIColor whiteColor]:[UIColor blueColor] forState:UIControlStateNormal];
+-(void) setIsLiked:(BOOL) isLiked{//(30,144,255)
+    if (isLiked){
+        [self.Likes setBackgroundColor:[[UIColor alloc] initWithRed:31/255. green:96/255. blue:1.0 alpha:0.40]];
+        [self.Likes setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
+    } else {
+        [self.Likes setBackgroundColor:[UIColor clearColor]];
+        [self.Likes setTitleColor:[[UIColor alloc] initWithRed:31/255. green:96/255. blue:1.0 alpha:0.9] forState:UIControlStateNormal];
+    }
     _isLiked = isLiked;
 }
 
 -(void) setIsFaved:(BOOL)isFaved {
-    [self.Favorites setBackgroundColor:isFaved?[UIColor yellowColor]:[UIColor clearColor]];
-    [self.Favorites setTitleColor:isFaved?[UIColor whiteColor]:[UIColor yellowColor] forState:UIControlStateNormal];
+    if (isFaved){
+        [self.Favorites setBackgroundColor:[[UIColor alloc] initWithRed:1. green:1. blue:1.0 alpha:0.40]];
+        [self.Favorites setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+    } else {
+        [self.Favorites setBackgroundColor:[UIColor clearColor]];
+        [self.Favorites setTitleColor:[[UIColor alloc] initWithRed:1. green:1. blue:0.0 alpha:0.9] forState:UIControlStateNormal];
+    }
     
     _isFaved = isFaved;
 }

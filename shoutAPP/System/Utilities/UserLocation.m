@@ -8,13 +8,14 @@
 
 #import "UserLocation.h"
 
-UserLocation * cHandler;
+static UserLocation * cHandler;
 
 @implementation UserLocation
 
 CLLocationManager *locationManager;
 double usrLat;
 double usrLng;
+
 
 #pragma mark - Helper functions to create CLLocationManager object
 
@@ -40,6 +41,10 @@ double usrLng;
         
         [locationManager startUpdatingLocation];
         [locationManager startMonitoringSignificantLocationChanges];
+        
+        NSTimer *timer=[NSTimer scheduledTimerWithTimeInterval:0.5 target:cHandler selector:@selector(locationRefresh) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+       
     }
 }
 
@@ -59,6 +64,13 @@ double usrLng;
     NSLog(@"Error getting usr location: %@", error);
 }
 
+-(void)locationRefresh
+{
+    NSLog(@"Mike");
+    [locationManager startUpdatingLocation];
+    [locationManager stopUpdatingLocation];
+}
+
 +(CGPoint) userLocation{
     //[locationManager ]
     //[locationManager getLocation];
@@ -70,6 +82,8 @@ double usrLng;
     
     return newPoint;
 }
+
+
 
 
 @end
