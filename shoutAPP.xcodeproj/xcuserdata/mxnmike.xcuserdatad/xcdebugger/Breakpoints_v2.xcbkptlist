@@ -19,13 +19,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "shoutAPP/MapViewTab/MapView.m"
-            timestampString = "455005613.181485"
+            filePath = "shoutAPP/System/Utilities/UserLocation.m"
+            timestampString = "455172792.071053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-mapView:viewForAnnotation:"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-locationRefresh"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "shoutAPP/System/Utilities/UserLocation.m"
+            timestampString = "455171990.517873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "+startStandarUpdates"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

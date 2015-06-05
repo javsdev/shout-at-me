@@ -11,24 +11,35 @@
 #import "GeoShoutApi.h"
 #import "VideoPostViewController.h"
 #import <Parse/Parse.h>
+#import <MediaPlayer/MediaPlayer.h>
+
+
 static const int POST_TYPE_TEXT = 1;
 static const int POST_TYPE_IMAGE = 2;
 static const int POST_TYPE_AUDIO = 3;
 static const int POST_TYPE_VIDEO = 4;
 static const int POST_TYPE_URL = 5;
 
-@interface PostVC () <UITextViewDelegate, PicturePostDelegate>
+@interface PostVC () <UITextViewDelegate, PicturePostDelegate, VideoPostDelegate>
 
+#pragma mark - Outlets
 @property (weak, nonatomic) IBOutlet UITextView *txtPostContent;
 @property (weak, nonatomic) IBOutlet UIButton *btnPostOut;
 - (IBAction)actPost:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indPosting;
+@property (weak, nonatomic) IBOutlet UIButton *btnRemoveMedia;
 
 @property int postType;
 
-// View to show preview image before posting
+// Preview image before posting
 @property UIImageView *imageView;
-@property NSObject * Media;
+@property NSObject * media;
+
+// Preview video before posting
+@property (nonatomic, strong) MPMoviePlayerController *player;
+@property (nonatomic, strong) NSString *videoUrl;
+
+// TODO: Preview audio before posting
 
 @end
 
@@ -41,12 +52,10 @@ static const int POST_TYPE_URL = 5;
     
     self.postType = POST_TYPE_TEXT;
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [self sizeViewFor:self.txtPostContent];
-    
-    // Get user location
-    //[self startStandarUpdates];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,14 +63,12 @@ static const int POST_TYPE_URL = 5;
     // Dispose of any resources that can be recreated.
 }
 
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
 
 #pragma mark -TextViewDelegate
-
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (textView.tag == 1)
@@ -85,6 +92,7 @@ static const int POST_TYPE_URL = 5;
     [self sizeViewFor:textView];
 
 }
+
 - (void)textViewDidChange:(UITextView *)textView {
     [self sizeViewFor:textView];
 }
@@ -100,7 +108,6 @@ static const int POST_TYPE_URL = 5;
     textView.frame = newFrame;
 }
 
-
 - (IBAction)actPost:(id)sender
 {
     self.btnPostOut.hidden = true;
@@ -112,7 +119,7 @@ static const int POST_TYPE_URL = 5;
             [self postText];
             break;
         case POST_TYPE_IMAGE:{
-            [self postPicture:(UIImage*)self.Media];
+            [self postPicture:(UIImage*)self.media];
         }
     }
     
@@ -123,7 +130,6 @@ static const int POST_TYPE_URL = 5;
     // Send push notification to query
     [PFPush sendPushMessageToQueryInBackground:pushQuery
                                    withMessage:@"Shout Added!"];
-
 }
 
 -(void)postText {
@@ -172,9 +178,59 @@ static const int POST_TYPE_URL = 5;
         }];
 }
 
+- (NSData *)generatePostDataForData:(NSData *)uploadData
+{
+    // Generate the post header:
+    NSString *post = [NSString stringWithCString:"--AaB03x\r\nContent-Disposition: form-data; name=\"upload[file]\"; filename=\"somefile\"\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding: binary\r\n\r\n" encoding:NSASCIIStringEncoding];
+    
+    // Get the post header int ASCII format:
+    NSData *postHeaderData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    // Generate the mutable data variable:
+    NSMutableData *postData = [[NSMutableData alloc] initWithLength:[postHeaderData length] ];
+    [postData setData:postHeaderData];
+    
+    // Add the image:
+    [postData appendData: uploadData];
+    
+    // Add the closing boundry:
+    [postData appendData: [@"\r\n--AaB03x--" dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]];
+    
+    // Return the post data:
+    return postData;
+}
+
+-(void) postVideo:(NSString*)videoPath {
+    CGPoint currentLocation = [UserLocation userLocation];
+    
+    NSData *content = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:videoPath]];
+    
+    [Posts postMedia:content
+             forUser:GEO_LOGGED_USER
+                 lat:currentLocation.x
+                 lng:currentLocation.y
+     withContentType:POST_TYPE_VIDEO
+   contentTypeString:@"video/quicktime"
+          contentExt:@"mov"
+        onCompletion:^(RequestResult *result) {
+            if (result.success){
+                [self dismissViewControllerAnimated:true completion:nil];
+            }
+            else {
+                self.btnPostOut.hidden = false;
+                [self.txtPostContent setUserInteractionEnabled:true];
+                [self.indPosting stopAnimating];
+                
+                NSLog(@"Posting Error: %@", result.msg);
+            }
+        }];
+}
+
 - (IBAction)doPostButtons:(id)sender
 {
     UIButton *button = (UIButton*)sender;
+    
+    [self removeCurrentMedia];
     
     switch (button.tag) {
         case 0:
@@ -190,19 +246,14 @@ static const int POST_TYPE_URL = 5;
         case 1:
         {
             //AudioPost
-            
-//            PicturePostViewController *pictureVC = [[PicturePostViewController alloc] initWithNibName:@"PicturePostViewController" bundle:[NSBundle mainBundle]];
-//            [pictureVC.view setFrame:[[UIScreen mainScreen] bounds]];
-//            
-//            [self presentViewController:pictureVC animated:true completion:nil];
         }
             break;
         case 2:
         {
-            //Video
-            
             VideoPostViewController *videoVC = [[VideoPostViewController alloc] initWithNibName:@"VideoPostViewController" bundle:[NSBundle mainBundle]];
             [videoVC.view setFrame:[[UIScreen mainScreen] bounds]];
+            
+            videoVC.delegate = self;
             
             [self presentViewController:videoVC animated:true completion:nil];
         }
@@ -210,20 +261,83 @@ static const int POST_TYPE_URL = 5;
 
         default:
             break;
-    
     }
-    
-    
 }
 
-#pragma mark - image selection delegate methods
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)removeMediaButton:(id)sender {
+    [self removeCurrentMedia];
+}
+
+#pragma mark - Image selection delegate methods
 -(void)didSelectImage:(UIImage*)image{
-    self.Media = image;
+    self.media = image;
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.extraContentContainer.frame.size.width, self.extraContentContainer.frame.size.height)];
     self.imageView.image = image;
+    
+    // Set mode to aspect fit
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     [self.extraContentContainer addSubview:self.imageView];
     
     self.postType = POST_TYPE_IMAGE;
+    
+    [self.txtPostContent setEditable:NO];
+    [self.btnRemoveMedia setHidden:NO];
+}
+
+-(void)didSelectVideo:(NSString *)videoUrl{
+    NSLog(@"video selected: %@ ", videoUrl);
+    
+    self.videoUrl = videoUrl;
+    
+    [self postVideo:videoUrl];
+    
+    self.postType = POST_TYPE_VIDEO;
+    
+    [self.txtPostContent setEditable:NO];
+    [self.btnRemoveMedia setHidden:NO];
+    
+    [self showVideoWithURL:[NSURL fileURLWithPath:videoUrl]];
+}
+
+#pragma mark - Custom methods
+-(void)showVideoWithURL:(NSURL *)url {
+    if (self.player == nil) {
+        self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
+        self.player.view.frame = CGRectMake(0, 0, self.extraContentContainer.frame.size.width, self.extraContentContainer.frame.size.height);
+        self.player.view.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    
+    [self.extraContentContainer addSubview:self.player.view];
+    [self.player play];
+}
+
+-(void)removeCurrentMedia{
+    switch (self.postType) {
+        case POST_TYPE_IMAGE:
+            [self.imageView removeFromSuperview];
+            
+            // TODO: Dismiss media
+            self.media = nil;
+            break;
+        case POST_TYPE_AUDIO:
+            break;
+        case POST_TYPE_VIDEO:
+            [self.player stop];
+            [self.player.view removeFromSuperview];
+            
+            self.videoUrl = @"";
+            break;
+        default:
+            break;
+    }
+    
+    [self.txtPostContent setEditable:YES];
+    [self.btnRemoveMedia setHidden:YES];
 }
 @end

@@ -41,13 +41,42 @@
                         <action selector="doVideoFolder:" destination="-1" eventType="touchUpInside" id="KGl-cf-wv3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55O-m3-Ngn">
+                    <rect key="frame" x="562" y="562" width="30" height="30"/>
+                    <state key="normal" title="Use">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnUse:" destination="-1" eventType="touchUpInside" id="zL9-12-xh1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySX-cY-ivv">
+                    <rect key="frame" x="8" y="562" width="35" height="30"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnBack:" destination="-1" eventType="touchUpInside" id="V9s-p9-VJP"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-ZS-hPQ">
+                    <rect key="frame" x="0.0" y="22" width="600" height="521"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="jDW-ZS-hPQ" secondAttribute="trailing" id="0Xc-1b-HX8"/>
+                <constraint firstItem="jDW-ZS-hPQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="EfF-6P-jY2"/>
+                <constraint firstAttribute="trailing" secondItem="55O-m3-Ngn" secondAttribute="trailing" constant="8" id="IEn-x3-1wH"/>
+                <constraint firstAttribute="bottom" secondItem="ySX-cY-ivv" secondAttribute="bottom" constant="8" id="Vtf-u8-6kX"/>
+                <constraint firstAttribute="bottom" secondItem="jDW-ZS-hPQ" secondAttribute="bottom" constant="57" id="W2n-Sd-rzT"/>
+                <constraint firstItem="jDW-ZS-hPQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bvR-2t-osU"/>
+                <constraint firstAttribute="bottom" secondItem="55O-m3-Ngn" secondAttribute="bottom" constant="8" id="egb-zk-XDD"/>
                 <constraint firstAttribute="bottom" secondItem="eTC-U4-bBr" secondAttribute="bottom" constant="5" id="f4T-gt-7ol"/>
                 <constraint firstAttribute="centerX" secondItem="eTC-U4-bBr" secondAttribute="centerX" constant="-54" id="kAk-AK-fg2"/>
                 <constraint firstAttribute="centerX" secondItem="2e9-FF-Rn4" secondAttribute="centerX" constant="31" id="tFG-Eg-NYA"/>
                 <constraint firstAttribute="bottom" secondItem="2e9-FF-Rn4" secondAttribute="bottom" constant="5" id="wXb-T9-dCi"/>
+                <constraint firstItem="ySX-cY-ivv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="xIj-DP-g9o"/>
             </constraints>
         </view>
     </objects>

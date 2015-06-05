@@ -18,6 +18,7 @@
 		0498E8801B1DEABB00C41DAE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499556161B1D640C00C3D855 /* MobileCoreServices.framework */; };
 		491008271B17A96A00842C4E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 491008251B17A96A00842C4E /* MapView.m */; };
 		491008281B17A96A00842C4E /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491008261B17A96A00842C4E /* MapView.xib */; };
+		4944A83E1B214AF600C9889C /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 4944A83D1B214AF600C9889C /* Region.m */; };
 		49824F191B1EB5D50030F3AD /* AWSAutoScaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0A1B1EB5D50030F3AD /* AWSAutoScaling.framework */; };
 		49824F1A1B1EB5D50030F3AD /* AWSCloudWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0B1B1EB5D50030F3AD /* AWSCloudWatch.framework */; };
 		49824F1B1B1EB5D50030F3AD /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F0C1B1EB5D50030F3AD /* AWSCognito.framework */; };
@@ -40,10 +41,6 @@
 		49824F681B1EB6230030F3AD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824F351B1EB6230030F3AD /* MenuViewController.m */; };
 		49824F691B1EB6230030F3AD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824F361B1EB6230030F3AD /* MenuViewController.xib */; };
 		49824F6A1B1EB6230030F3AD /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824F381B1EB6230030F3AD /* Messages.m */; };
-		49824F6B1B1EB6230030F3AD /* PicturePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824F3B1B1EB6230030F3AD /* PicturePostViewController.m */; };
-		49824F6C1B1EB6230030F3AD /* PicturePostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824F3C1B1EB6230030F3AD /* PicturePostViewController.xib */; };
-		49824F6D1B1EB6230030F3AD /* PostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824F3E1B1EB6230030F3AD /* PostVC.m */; };
-		49824F6E1B1EB6230030F3AD /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824F3F1B1EB6230030F3AD /* PostVC.xib */; };
 		49824F731B1EB6230030F3AD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F471B1EB6230030F3AD /* Bolts.framework */; };
 		49824F741B1EB6230030F3AD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49824F481B1EB6230030F3AD /* Parse.framework */; };
 		49824F771B1EB6230030F3AD /* BARRA_SUPERIOR_HOME.png in Resources */ = {isa = PBXBuildFile; fileRef = 49824F4D1B1EB6230030F3AD /* BARRA_SUPERIOR_HOME.png */; };
@@ -84,8 +81,6 @@
 		49824FD01B1EB64C0030F3AD /* UsersPostsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824FC01B1EB64C0030F3AD /* UsersPostsVC.m */; };
 		49824FD11B1EB64C0030F3AD /* UsersPostsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824FC11B1EB64C0030F3AD /* UsersPostsVC.xib */; };
 		49824FD31B1EB7330030F3AD /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C66DE21B1E9E28002ACE7B /* Mantle.framework */; };
-		49824FD71B1EB8780030F3AD /* VideoPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824FD51B1EB8780030F3AD /* VideoPostViewController.m */; };
-		49824FD81B1EB8780030F3AD /* VideoPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824FD61B1EB8780030F3AD /* VideoPostViewController.xib */; };
 		49824FE31B1EB8D70030F3AD /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824FDB1B1EB8D70030F3AD /* LoginVC.m */; };
 		49824FE41B1EB8D70030F3AD /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49824FDC1B1EB8D70030F3AD /* LoginVC.xib */; };
 		49824FE51B1EB8D70030F3AD /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 49824FDE1B1EB8D70030F3AD /* ProfileVC.m */; };
@@ -106,6 +101,17 @@
 		49F85BE61B16ADBF0058F705 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F85BE51B16ADBF0058F705 /* Images.xcassets */; };
 		49F85BE91B16ADBF0058F705 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F85BE71B16ADBF0058F705 /* LaunchScreen.xib */; };
 		49F85BF51B16ADBF0058F705 /* shoutAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F85BF41B16ADBF0058F705 /* shoutAPPTests.m */; };
+		89BE9C791B214BB4003E74B6 /* AudioPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */; };
+		89BE9C7A1B214BB4003E74B6 /* AudioPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */; };
+		89BE9C7B1B214BB4003E74B6 /* FakeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C6D1B214BB4003E74B6 /* FakeVideoViewController.m */; };
+		89BE9C7C1B214BB4003E74B6 /* FakeVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C6E1B214BB4003E74B6 /* FakeVideoViewController.xib */; };
+		89BE9C7D1B214BB4003E74B6 /* PicturePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C701B214BB4003E74B6 /* PicturePostViewController.m */; };
+		89BE9C7E1B214BB4003E74B6 /* PicturePostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C711B214BB4003E74B6 /* PicturePostViewController.xib */; };
+		89BE9C7F1B214BB4003E74B6 /* PostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C731B214BB4003E74B6 /* PostVC.m */; };
+		89BE9C801B214BB4003E74B6 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C741B214BB4003E74B6 /* PostVC.xib */; };
+		89BE9C811B214BB4003E74B6 /* sample_iTunes.mov in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */; };
+		89BE9C821B214BB4003E74B6 /* VideoPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */; };
+		89BE9C831B214BB4003E74B6 /* VideoPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +134,8 @@
 		491008241B17A96A00842C4E /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapView.h; path = MapViewTab/MapView.h; sourceTree = "<group>"; };
 		491008251B17A96A00842C4E /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapView.m; path = MapViewTab/MapView.m; sourceTree = "<group>"; };
 		491008261B17A96A00842C4E /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapView.xib; path = MapViewTab/MapView.xib; sourceTree = "<group>"; };
+		4944A83C1B214AF600C9889C /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		4944A83D1B214AF600C9889C /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		49824F0A1B1EB5D50030F3AD /* AWSAutoScaling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSAutoScaling.framework; sourceTree = "<group>"; };
 		49824F0B1B1EB5D50030F3AD /* AWSCloudWatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCloudWatch.framework; sourceTree = "<group>"; };
 		49824F0C1B1EB5D50030F3AD /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
@@ -154,12 +162,6 @@
 		49824F361B1EB6230030F3AD /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		49824F371B1EB6230030F3AD /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
 		49824F381B1EB6230030F3AD /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
-		49824F3A1B1EB6230030F3AD /* PicturePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturePostViewController.h; sourceTree = "<group>"; };
-		49824F3B1B1EB6230030F3AD /* PicturePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturePostViewController.m; sourceTree = "<group>"; };
-		49824F3C1B1EB6230030F3AD /* PicturePostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturePostViewController.xib; sourceTree = "<group>"; };
-		49824F3D1B1EB6230030F3AD /* PostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostVC.h; sourceTree = "<group>"; };
-		49824F3E1B1EB6230030F3AD /* PostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostVC.m; sourceTree = "<group>"; };
-		49824F3F1B1EB6230030F3AD /* PostVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
 		49824F471B1EB6230030F3AD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		49824F481B1EB6230030F3AD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		49824F4D1B1EB6230030F3AD /* BARRA_SUPERIOR_HOME.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BARRA_SUPERIOR_HOME.png; sourceTree = "<group>"; };
@@ -226,9 +228,6 @@
 		49824FBF1B1EB64C0030F3AD /* UsersPostsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersPostsVC.h; sourceTree = "<group>"; };
 		49824FC01B1EB64C0030F3AD /* UsersPostsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersPostsVC.m; sourceTree = "<group>"; };
 		49824FC11B1EB64C0030F3AD /* UsersPostsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersPostsVC.xib; sourceTree = "<group>"; };
-		49824FD41B1EB8780030F3AD /* VideoPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPostViewController.h; sourceTree = "<group>"; };
-		49824FD51B1EB8780030F3AD /* VideoPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPostViewController.m; sourceTree = "<group>"; };
-		49824FD61B1EB8780030F3AD /* VideoPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPostViewController.xib; sourceTree = "<group>"; };
 		49824FDA1B1EB8D70030F3AD /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		49824FDB1B1EB8D70030F3AD /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		49824FDC1B1EB8D70030F3AD /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -269,6 +268,22 @@
 		49F85BEE1B16ADBF0058F705 /* shoutAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shoutAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F85BF31B16ADBF0058F705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F85BF41B16ADBF0058F705 /* shoutAPPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shoutAPPTests.m; sourceTree = "<group>"; };
+		89BE9C691B214BB4003E74B6 /* AudioPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPostViewController.h; sourceTree = "<group>"; };
+		89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPostViewController.m; sourceTree = "<group>"; };
+		89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostViewController.xib; sourceTree = "<group>"; };
+		89BE9C6C1B214BB4003E74B6 /* FakeVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeVideoViewController.h; sourceTree = "<group>"; };
+		89BE9C6D1B214BB4003E74B6 /* FakeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeVideoViewController.m; sourceTree = "<group>"; };
+		89BE9C6E1B214BB4003E74B6 /* FakeVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FakeVideoViewController.xib; sourceTree = "<group>"; };
+		89BE9C6F1B214BB4003E74B6 /* PicturePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturePostViewController.h; sourceTree = "<group>"; };
+		89BE9C701B214BB4003E74B6 /* PicturePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturePostViewController.m; sourceTree = "<group>"; };
+		89BE9C711B214BB4003E74B6 /* PicturePostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturePostViewController.xib; sourceTree = "<group>"; };
+		89BE9C721B214BB4003E74B6 /* PostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostVC.h; sourceTree = "<group>"; };
+		89BE9C731B214BB4003E74B6 /* PostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostVC.m; sourceTree = "<group>"; };
+		89BE9C741B214BB4003E74B6 /* PostVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
+		89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample_iTunes.mov; sourceTree = "<group>"; };
+		89BE9C761B214BB4003E74B6 /* VideoPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPostViewController.h; sourceTree = "<group>"; };
+		89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPostViewController.m; sourceTree = "<group>"; };
+		89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPostViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +335,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4944A83B1B214AF600C9889C /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				4944A83C1B214AF600C9889C /* Region.h */,
+				4944A83D1B214AF600C9889C /* Region.m */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
 		49824F091B1EB5D50030F3AD /* AWS */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,15 +411,22 @@
 		49824F391B1EB6230030F3AD /* PostingSystem */ = {
 			isa = PBXGroup;
 			children = (
-				49824FD41B1EB8780030F3AD /* VideoPostViewController.h */,
-				49824FD51B1EB8780030F3AD /* VideoPostViewController.m */,
-				49824FD61B1EB8780030F3AD /* VideoPostViewController.xib */,
-				49824F3A1B1EB6230030F3AD /* PicturePostViewController.h */,
-				49824F3B1B1EB6230030F3AD /* PicturePostViewController.m */,
-				49824F3C1B1EB6230030F3AD /* PicturePostViewController.xib */,
-				49824F3D1B1EB6230030F3AD /* PostVC.h */,
-				49824F3E1B1EB6230030F3AD /* PostVC.m */,
-				49824F3F1B1EB6230030F3AD /* PostVC.xib */,
+				89BE9C691B214BB4003E74B6 /* AudioPostViewController.h */,
+				89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */,
+				89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */,
+				89BE9C6C1B214BB4003E74B6 /* FakeVideoViewController.h */,
+				89BE9C6D1B214BB4003E74B6 /* FakeVideoViewController.m */,
+				89BE9C6E1B214BB4003E74B6 /* FakeVideoViewController.xib */,
+				89BE9C6F1B214BB4003E74B6 /* PicturePostViewController.h */,
+				89BE9C701B214BB4003E74B6 /* PicturePostViewController.m */,
+				89BE9C711B214BB4003E74B6 /* PicturePostViewController.xib */,
+				89BE9C721B214BB4003E74B6 /* PostVC.h */,
+				89BE9C731B214BB4003E74B6 /* PostVC.m */,
+				89BE9C741B214BB4003E74B6 /* PostVC.xib */,
+				89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */,
+				89BE9C761B214BB4003E74B6 /* VideoPostViewController.h */,
+				89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */,
+				89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */,
 			);
 			path = PostingSystem;
 			sourceTree = "<group>";
@@ -427,6 +458,7 @@
 		49824F581B1EB6230030F3AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4944A83B1B214AF600C9889C /* Object */,
 				49824F591B1EB6230030F3AD /* GeoShoutApi.h */,
 				49824F5A1B1EB6230030F3AD /* GeoShoutApi.m */,
 				49824F5B1B1EB6230030F3AD /* UserLocation.h */,
@@ -744,8 +776,8 @@
 				49F85BE91B16ADBF0058F705 /* LaunchScreen.xib in Resources */,
 				49824FE41B1EB8D70030F3AD /* LoginVC.xib in Resources */,
 				49824FC81B1EB64C0030F3AD /* TextPostView.xib in Resources */,
+				89BE9C7A1B214BB4003E74B6 /* AudioPostViewController.xib in Resources */,
 				49824F781B1EB6230030F3AD /* BS_ICONO_BACK.png in Resources */,
-				49824FD81B1EB8780030F3AD /* VideoPostViewController.xib in Resources */,
 				49F85BE61B16ADBF0058F705 /* Images.xcassets in Resources */,
 				49824F651B1EB6230030F3AD /* MapCustomCell.xib in Resources */,
 				49824F771B1EB6230030F3AD /* BARRA_SUPERIOR_HOME.png in Resources */,
@@ -757,15 +789,18 @@
 				49824FC31B1EB64C0030F3AD /* PostViewCollectionViewCell.xib in Resources */,
 				49824F671B1EB6230030F3AD /* MenuCustomCell.xib in Resources */,
 				49824FE81B1EB8D70030F3AD /* RegisterVC.xib in Resources */,
+				89BE9C831B214BB4003E74B6 /* VideoPostViewController.xib in Resources */,
 				49824F7B1B1EB6230030F3AD /* changephoto.png in Resources */,
 				49824FC61B1EB64C0030F3AD /* PostView.xib in Resources */,
+				89BE9C811B214BB4003E74B6 /* sample_iTunes.mov in Resources */,
 				49824FE61B1EB8D70030F3AD /* ProfileVC.xib in Resources */,
 				49824F7C1B1EB6230030F3AD /* FILTROCD_BTN.png in Resources */,
 				49824F7E1B1EB6230030F3AD /* pictureFolder.png in Resources */,
-				49824F6C1B1EB6230030F3AD /* PicturePostViewController.xib in Resources */,
 				49824F791B1EB6230030F3AD /* BS_ICONO_SEARCH.png in Resources */,
+				89BE9C7C1B214BB4003E74B6 /* FakeVideoViewController.xib in Resources */,
+				89BE9C7E1B214BB4003E74B6 /* PicturePostViewController.xib in Resources */,
+				89BE9C801B214BB4003E74B6 /* PostVC.xib in Resources */,
 				491008281B17A96A00842C4E /* MapView.xib in Resources */,
-				49824F6E1B1EB6230030F3AD /* PostVC.xib in Resources */,
 				0498DD9A1B1D5ABF00C41DAE /* s3-2006-03-01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,11 +820,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49824FCF1B1EB64C0030F3AD /* User.m in Sources */,
+				89BE9C821B214BB4003E74B6 /* VideoPostViewController.m in Sources */,
+				89BE9C7B1B214BB4003E74B6 /* FakeVideoViewController.m in Sources */,
 				49824F641B1EB6230030F3AD /* MapCustomCell.m in Sources */,
+				89BE9C7D1B214BB4003E74B6 /* PicturePostViewController.m in Sources */,
 				49824FCA1B1EB64C0030F3AD /* GeoPost.m in Sources */,
 				49824F821B1EB6230030F3AD /* Utils.m in Sources */,
 				49824FC21B1EB64C0030F3AD /* PostViewCollectionViewCell.m in Sources */,
-				49824F6D1B1EB6230030F3AD /* PostVC.m in Sources */,
 				49824F9A1B1EB6370030F3AD /* AFHTTPRequestOperationManager.m in Sources */,
 				49824FC51B1EB64C0030F3AD /* PostView.m in Sources */,
 				49F85BDB1B16ADBF0058F705 /* AppDelegate.m in Sources */,
@@ -801,14 +838,16 @@
 				491008271B17A96A00842C4E /* MapView.m in Sources */,
 				49824FE31B1EB8D70030F3AD /* LoginVC.m in Sources */,
 				49824F9B1B1EB6370030F3AD /* AFHTTPSessionManager.m in Sources */,
+				89BE9C7F1B214BB4003E74B6 /* PostVC.m in Sources */,
 				499556021B1BC01D00C3D855 /* ShoutAnnotation.m in Sources */,
 				49824F9C1B1EB6370030F3AD /* AFNetworkReachabilityManager.m in Sources */,
+				89BE9C791B214BB4003E74B6 /* AudioPostViewController.m in Sources */,
 				49824F9E1B1EB6370030F3AD /* AFURLConnectionOperation.m in Sources */,
 				49824F6A1B1EB6230030F3AD /* Messages.m in Sources */,
+				4944A83E1B214AF600C9889C /* Region.m in Sources */,
 				49824FCD1B1EB64C0030F3AD /* Profile.m in Sources */,
 				49824F991B1EB6370030F3AD /* AFHTTPRequestOperation.m in Sources */,
 				49824FA11B1EB6370030F3AD /* AFURLSessionManager.m in Sources */,
-				49824FD71B1EB8780030F3AD /* VideoPostViewController.m in Sources */,
 				49F85BD81B16ADBF0058F705 /* main.m in Sources */,
 				49824FC91B1EB64C0030F3AD /* Credentials.m in Sources */,
 				49824F9D1B1EB6370030F3AD /* AFSecurityPolicy.m in Sources */,
@@ -824,7 +863,6 @@
 				49824FCC1B1EB64C0030F3AD /* Post.m in Sources */,
 				49824FE71B1EB8D70030F3AD /* RegisterVC.m in Sources */,
 				49824FD01B1EB64C0030F3AD /* UsersPostsVC.m in Sources */,
-				49824F6B1B1EB6230030F3AD /* PicturePostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

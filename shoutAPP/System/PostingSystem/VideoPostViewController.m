@@ -9,17 +9,20 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "VideoPostViewController.h"
+#import "FakeVideoViewController.h"
 
-@interface VideoPostViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface VideoPostViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,FakeVideoDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *pictureSourceTableView;
 
 @property UIImagePickerController *picker;
 @property (nonatomic, strong) MPMoviePlayerController *player;
+@property (nonatomic, strong) NSString *videoUrl;
 
 @end
 
 @implementation VideoPostViewController
 
+#pragma mark - View methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -30,76 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
- */
-#pragma mark UIImagePickerControllerDelegate
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSLog(@"%@",info);
-    
-    NSURL *videoURL = [info valueForKey:UIImagePickerControllerMediaURL];
-    NSString *pathToVideo = [videoURL path];
-    BOOL okToSaveVideo = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(pathToVideo);
-    if (okToSaveVideo) {
-        //UISaveVideoAtPathToSavedPhotosAlbum(pathToVideo, self, @selector(video:didFinishSavingWithError:contextInfo:), NULL);
-        UISaveVideoAtPathToSavedPhotosAlbum(pathToVideo, self, nil, NULL);
-        
-        [self showVideoWithURL:[NSURL URLWithString:pathToVideo]];
-    } else {
-        //[self video:pathToVideo didFinishSavingWithError:nil contextInfo:NULL];
-    }
-    
-}
-
--(void)showVideoWithURL:(NSURL *)url {
-    self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
-    self.player.view.frame = CGRectMake(0, 40, self.view.frame.size.width, self.view.frame.size.width*.75);
-    
-    [self.view addSubview:self.player.view];
-    [self.player play];
-}
-
--(void)image:(UIImage *)image
-finishedSavingWithError:(NSError *)error
- contextInfo:(void *)contextInfo
-{
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
-                              message: @"Failed to save image"
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-    }
-}
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)doVideoFolder:(id)sender
-{
-    NSLog(@"PhotoLibrary Functions.");
-    self.picker = [[UIImagePickerController alloc]init];
-    self.picker.delegate = self;
-    [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    self.picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-    [self presentViewController:self.picker animated:YES completion:NULL];
-    
-}
-
-#pragma mark Custom Methods
-
+#pragma mark - Custom Methods
 -(void) createDatePickerAndShow
 {
     [self.pictureSourceTableView setHidden:NO];
@@ -122,8 +56,57 @@ finishedSavingWithError:(NSError *)error
                      completion:nil];
 }
 
+-(void)showVideoWithURL:(NSURL *)url {
+    self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
+    self.player.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60);
+    self.player.view.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self.view addSubview:self.player.view];
+    [self.player play];
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)showFileSystemPicker{
+    NSLog(@"PhotoLibrary Functions.");
+    self.picker = [[UIImagePickerController alloc]init];
+    self.picker.delegate = self;
+    [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    self.picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+    [self presentViewController:self.picker animated:YES completion:NULL];
+}
+
+#pragma mark - Action methods
+- (IBAction)doVideoFolder:(id)sender
+{
+    self.videoUrl = @"";
+    [self.player stop];
+    
+    // TODO: For production
+    //[self showFileSystemPicker];
+    
+    // TODO: For testing without device
+    [self showFakeFileSystemPicker];
+}
+
 - (IBAction)doTakeVideo:(id)sender
 {
+    self.videoUrl = @"";
+    [self.player stop];
+    
     self.picker = [[UIImagePickerController alloc] init];
     self.picker.delegate = self;
     
@@ -146,4 +129,60 @@ finishedSavingWithError:(NSError *)error
         NSLog(@"Not device available");
     }
 }
+
+- (IBAction)btnBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)btnUse:(id)sender {
+    [self.player stop];
+    [self.player.view removeFromSuperview];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.delegate didSelectVideo:self.videoUrl];
+    }];
+}
+
+#pragma mark - Image picker delegate methods
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSLog(@"%@",info);
+    
+    NSURL *videoURL = [info valueForKey:UIImagePickerControllerMediaURL];
+    NSString *pathToVideo = [videoURL path];
+    BOOL okToSaveVideo = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(pathToVideo);
+    if (okToSaveVideo) {
+        UISaveVideoAtPathToSavedPhotosAlbum(pathToVideo, self, nil, NULL);
+        
+        [self showVideoWithURL:[NSURL URLWithString:pathToVideo]];
+        
+        self.videoUrl = pathToVideo;
+    } else {
+        //[self video:pathToVideo didFinishSavingWithError:nil contextInfo:NULL];
+    }
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Fake Video Picker Methods
+-(void)showFakeFileSystemPicker{
+    FakeVideoViewController *pickerView = [[FakeVideoViewController alloc] initWithNibName:@"FakeVideoViewController" bundle:[NSBundle mainBundle]];
+    pickerView.delegate = self;
+    
+    [self presentViewController:pickerView animated:YES completion:nil];
+}
+
+-(void)didFinishPickingFakeMediaWithInfo:(NSString *)info{
+    [self showVideoWithURL:[NSURL fileURLWithPath:info]];
+    
+    self.videoUrl = info;
+}
+
+-(void)fakePickerControllerDidCancel{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
