@@ -10,6 +10,7 @@
 #import "PostViewCollectionViewCell.h"
 #import "AppDelegate.h"
 #import "GeoShoutApi.h"
+#import "PostsDisplay.h"
 
 @interface UsersPostsVC ()
 
@@ -54,6 +55,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.PostsIDS.count;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//   PostViewCollectionViewCell *cell = (PostViewCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
