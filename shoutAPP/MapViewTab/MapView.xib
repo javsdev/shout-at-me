@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
+            <connections>
+                <outlet property="blockView" destination="zw5-u0-Y7h" id="kdM-v6-m59"/>
+                <outlet property="map" destination="j9Z-la-qqg" id="0L0-0v-bg5"/>
+                <outlet property="view" destination="iN0-l3-epB" id="TZr-Qk-YnU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="5" width="580" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-u0-Y7h">
+                    <rect key="frame" x="0.0" y="76" width="580" height="524"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j9Z-la-qqg">
+                    <rect key="frame" x="0.0" y="76" width="580" height="524"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="xSX-L5-HQc"/>
+                    </connections>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zw5-u0-Y7h" firstAttribute="top" secondItem="j9Z-la-qqg" secondAttribute="top" id="4mi-ow-QEl"/>
+                <constraint firstItem="zw5-u0-Y7h" firstAttribute="bottom" secondItem="j9Z-la-qqg" secondAttribute="bottom" id="5LL-J8-gNb"/>
+                <constraint firstAttribute="bottom" secondItem="j9Z-la-qqg" secondAttribute="bottom" id="Ofn-Sd-PmU"/>
+                <constraint firstItem="j9Z-la-qqg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="76" id="QEw-TL-E6c"/>
+                <constraint firstItem="zw5-u0-Y7h" firstAttribute="trailing" secondItem="j9Z-la-qqg" secondAttribute="trailing" id="QyJ-sQ-bSc"/>
+                <constraint firstItem="j9Z-la-qqg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Z92-a6-sDp"/>
+                <constraint firstItem="zw5-u0-Y7h" firstAttribute="leading" secondItem="j9Z-la-qqg" secondAttribute="leading" id="ZTW-Qy-Qik"/>
+                <constraint firstAttribute="trailing" secondItem="j9Z-la-qqg" secondAttribute="trailing" id="uSe-v8-62g"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="433" y="357"/>
+        </view>
+    </objects>
+</document>

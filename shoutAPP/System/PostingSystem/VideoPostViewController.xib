@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPostViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-FF-Rn4">
+                    <rect key="frame" x="239" y="545" width="60" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Cmy-Qs-KsP"/>
+                        <constraint firstAttribute="width" constant="60" id="fJl-qy-WXd"/>
+                        <constraint firstAttribute="height" constant="50" id="rmR-b7-NeJ"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="changephoto.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doTakeVideo:" destination="-1" eventType="touchUpInside" id="dc6-GI-HJO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-U4-bBr">
+                    <rect key="frame" x="324" y="545" width="60" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Ekp-4q-jIn"/>
+                        <constraint firstAttribute="height" constant="50" id="hbF-yT-o7s"/>
+                    </constraints>
+                    <state key="normal" image="pictureFolder.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doVideoFolder:" destination="-1" eventType="touchUpInside" id="KGl-cf-wv3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eTC-U4-bBr" secondAttribute="bottom" constant="5" id="f4T-gt-7ol"/>
+                <constraint firstAttribute="centerX" secondItem="eTC-U4-bBr" secondAttribute="centerX" constant="-54" id="kAk-AK-fg2"/>
+                <constraint firstAttribute="centerX" secondItem="2e9-FF-Rn4" secondAttribute="centerX" constant="31" id="tFG-Eg-NYA"/>
+                <constraint firstAttribute="bottom" secondItem="2e9-FF-Rn4" secondAttribute="bottom" constant="5" id="wXb-T9-dCi"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="changephoto.png" width="466" height="466"/>
+        <image name="pictureFolder.png" width="40" height="40"/>
+    </resources>
+</document>

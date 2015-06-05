@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="Mji-1B-BIf" customClass="MenuCustomCell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mji-1B-BIf" id="MwU-NH-tr9">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI5-zM-Y9Q">
+                        <rect key="frame" x="0.0" y="8" width="30" height="30"/>
+                        <state key="normal" title="&lt;">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="doLeftButton:" destination="Mji-1B-BIf" eventType="touchUpInside" id="F7j-1Q-ROO"/>
+                        </connections>
+                    </button>
+                    <scrollView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-Iq-TcU">
+                        <rect key="frame" x="38" y="0.0" width="124" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="pse-W0-oft">
+                                <rect key="frame" x="8" y="12" width="108" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="1aq-lS-5M2"/>
+                                    <constraint firstAttribute="height" constant="20" id="eo9-wp-6VD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pse-W0-oft" firstAttribute="top" secondItem="F8u-Iq-TcU" secondAttribute="top" constant="12" id="DN6-uf-B7u"/>
+                            <constraint firstAttribute="trailing" secondItem="pse-W0-oft" secondAttribute="trailing" constant="8" id="X2g-NE-qgE"/>
+                            <constraint firstItem="pse-W0-oft" firstAttribute="leading" secondItem="F8u-Iq-TcU" secondAttribute="leading" constant="8" id="z2r-eN-aGS"/>
+                            <constraint firstAttribute="bottom" secondItem="pse-W0-oft" secondAttribute="bottom" constant="11.5" id="zVk-iY-cLE"/>
+                        </constraints>
+                    </scrollView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-ee-sdj">
+                        <rect key="frame" x="170" y="8" width="30" height="30"/>
+                        <state key="normal" title="&gt;">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="doRightbutton:" destination="Mji-1B-BIf" eventType="touchUpInside" id="6dN-8S-GOj"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="F8u-Iq-TcU" secondAttribute="bottom" constant="-8" id="3H4-4b-xog"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tUT-ee-sdj" secondAttribute="trailing" constant="-8" id="7FX-y4-O4o"/>
+                    <constraint firstItem="XI5-zM-Y9Q" firstAttribute="leading" secondItem="MwU-NH-tr9" secondAttribute="leadingMargin" constant="-8" id="8L3-3d-qaV"/>
+                    <constraint firstItem="XI5-zM-Y9Q" firstAttribute="top" secondItem="MwU-NH-tr9" secondAttribute="topMargin" id="BTE-e3-X2J"/>
+                    <constraint firstItem="F8u-Iq-TcU" firstAttribute="leading" secondItem="MwU-NH-tr9" secondAttribute="leadingMargin" constant="30" id="bah-uu-zGo"/>
+                    <constraint firstItem="F8u-Iq-TcU" firstAttribute="top" secondItem="MwU-NH-tr9" secondAttribute="topMargin" constant="-8" id="gcJ-vi-3lc"/>
+                    <constraint firstItem="tUT-ee-sdj" firstAttribute="top" secondItem="MwU-NH-tr9" secondAttribute="topMargin" id="nad-gt-vdQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F8u-Iq-TcU" secondAttribute="trailing" constant="30" id="nq8-yk-OBj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnLeft" destination="XI5-zM-Y9Q" id="9ok-qO-erp"/>
+                <outlet property="btnRight" destination="tUT-ee-sdj" id="Awd-eT-FNN"/>
+                <outlet property="lblMenu" destination="pse-W0-oft" id="ZHg-Ux-k5P"/>
+                <outlet property="scrollCell" destination="F8u-Iq-TcU" id="D7b-c5-1Hr"/>
+            </connections>
+            <point key="canvasLocation" x="307" y="302"/>
+        </tableViewCell>
+    </objects>
+</document>

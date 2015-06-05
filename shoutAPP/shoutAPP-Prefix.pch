@@ -1,0 +1,27 @@
+//
+//  shoutAPP-Prefix.pch
+//  shoutAPP
+//
+//  Created by Miguel Garcia Topete on 5/28/15.
+//  Copyright (c) 2015 Miguel Garcia Topete. All rights reserved.
+//
+
+#ifndef shoutAPP_shoutAPP_Prefix_pch
+#define shoutAPP_shoutAPP_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+//utils for the application
+#import "Utils.h"
+#import "GeoShoutApi.h"
+#import "UserLocation.h"
+
+#endif
+
+#endif

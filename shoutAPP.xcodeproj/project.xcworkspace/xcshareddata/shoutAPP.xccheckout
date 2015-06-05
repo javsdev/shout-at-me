@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E49169BA-251B-4D66-850D-85D7F2C94F3B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>shoutAPP</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</key>
+		<string>https://shoutapp.svn.beanstalkapp.com/shoutapp</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/shoutapp/shoutAPP.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shoutapp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
