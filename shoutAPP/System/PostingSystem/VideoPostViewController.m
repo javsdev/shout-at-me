@@ -110,6 +110,7 @@ finishedSavingWithError:(NSError *)error
         
         [self presentViewController:self.picker animated:YES completion:NULL];
         
+         // TODO: Choose controls
         [self.picker startVideoCapture];
     } else {
         NSLog(@"Not device available for taking video");
@@ -146,6 +147,8 @@ finishedSavingWithError:(NSError *)error
     } else {
         //[self video:pathToVideo didFinishSavingWithError:nil contextInfo:NULL];
     }
+    
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
