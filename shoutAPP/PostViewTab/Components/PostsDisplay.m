@@ -25,9 +25,8 @@ static NSMutableDictionary * postViewCache;
                                                             owner:self
                                                           options:nil ][0];
     
-    [imgView setFrame:view.PostDisplayView.bounds];//[imgView setFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    [imgView setFrame:view.PostDisplayView.bounds];
     [imgView initWithImageSrc:content];
-    
     [view.PostDisplayView addSubview:imgView];
 }
 
@@ -36,7 +35,9 @@ static NSMutableDictionary * postViewCache;
                                                             owner:self
                                                           options:nil ][0];
     [textView.TextView setText:content];
-    [textView setFrame:view.PostDisplayView.bounds]; //CGRectMake(0, 0, view. .frame.size.width, view.frame.size.height)];
+    [textView setFrame:view.PostDisplayView.bounds];
+    [textView.TextView setFont:[UIFont boldSystemFontOfSize:22]];
+    [textView.TextView setTextColor:[[UIColor alloc] initWithRed:31/255. green:96/255. blue:1.0 alpha:1.0]];
     [view.PostDisplayView addSubview:textView];
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7703" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,18 +10,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8p-kp-WAj">
-                    <rect key="frame" x="8" y="18" width="584" height="574"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="text" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8p-kp-WAj">
+                    <rect key="frame" x="8" y="2" width="584" height="590"/>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                 </textView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="m8p-kp-WAj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="LKs-4A-h2K"/>
+                <constraint firstItem="m8p-kp-WAj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="LKs-4A-h2K"/>
                 <constraint firstAttribute="bottom" secondItem="m8p-kp-WAj" secondAttribute="bottom" constant="8" id="Pd3-AX-L13"/>
                 <constraint firstAttribute="trailing" secondItem="m8p-kp-WAj" secondAttribute="trailing" constant="8" id="V08-f1-pUX"/>
                 <constraint firstItem="m8p-kp-WAj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="beJ-Dd-Ye3"/>

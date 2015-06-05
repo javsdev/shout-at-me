@@ -14,7 +14,6 @@
                     <rect key="frame" x="8" y="25" width="584" height="567"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="jKM-sf-wCE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="Bfn-rO-EzH"/>
                 <constraint firstAttribute="trailing" secondItem="jKM-sf-wCE" secondAttribute="trailing" constant="8" id="Fc4-jR-4h0"/>

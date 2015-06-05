@@ -22,10 +22,11 @@
                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <size key="titleShadowOffset" width="2" height="2"/>
                             <state key="normal" title="profile">
+                                <color key="titleColor" red="0.12156862745098039" green="0.37647058823529411" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uma-nr-i2U">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uma-nr-i2U">
                             <rect key="frame" x="38" y="266" width="141" height="36"/>
                             <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -33,7 +34,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <size key="titleShadowOffset" width="1" height="-1"/>
+                            <size key="titleShadowOffset" width="0.0" height="1"/>
                             <state key="normal" title="follow">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,21 +66,23 @@
                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88e-Dl-FAg">
                             <rect key="frame" x="209" y="562" width="391" height="34"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-iR-Grq">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-iR-Grq">
                                     <rect key="frame" x="2" y="2" width="125" height="30"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <size key="titleShadowOffset" width="1" height="1"/>
-                                    <state key="normal" title="lk"/>
+                                    <state key="normal" title="lk">
+                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
                                     <connections>
                                         <action selector="actionLike:" destination="iN0-l3-epB" eventType="touchUpInside" id="O1i-JG-wqR"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EH2-Qi-ymF">
                                     <rect key="frame" x="259" y="2" width="128" height="30"/>
-                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="dl">
                                         <color key="titleColor" red="1" green="0.35674178880000001" blue="0.74862247859999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,19 +105,20 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-IK-gu1">
                             <rect key="frame" x="342" y="564" width="125" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.17808043400000001" blue="0.35259585059999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <size key="titleShadowOffset" width="1" height="1"/>
                             <state key="normal" title="fv">
                                 <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="actionFav:" destination="iN0-l3-epB" eventType="touchUpInside" id="WCw-sP-PwK"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="15L-F5-M3w" firstAttribute="leading" secondItem="dDH-UV-r8d" secondAttribute="trailing" constant="8" id="0t3-yP-Ai6"/>
                         <constraint firstItem="emc-7E-pCa" firstAttribute="top" secondItem="dDH-UV-r8d" secondAttribute="bottom" constant="19" id="6uv-SI-gnI"/>
@@ -147,7 +151,6 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aez-el-3bK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-8" id="aIJ-ve-tZd"/>
                 <constraint firstItem="aez-el-3bK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g3G-Iy-4Oc"/>

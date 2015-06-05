@@ -42,20 +42,24 @@ bool _isFaved;
 }
 
 -(void) setIsLiked:(BOOL) isLiked{//(30,144,255)
-    //UIColor * foreground = [UIColor redColor:]
     if (isLiked){
-        [self.Likes setBackgroundColor:[UIColor blueColor]];
-        [self.Likes setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.Likes setBackgroundColor:[[UIColor alloc] initWithRed:31/255. green:96/255. blue:1.0 alpha:0.40]];
+        [self.Likes setTitleColor:[UIColor lightTextColor] forState:UIControlStateNormal];
     } else {
-        [self.Likes setBackgroundColor:[UIColor blueColor]];
-        [self.Likes setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.Likes setBackgroundColor:[UIColor clearColor]];
+        [self.Likes setTitleColor:[[UIColor alloc] initWithRed:31/255. green:96/255. blue:1.0 alpha:0.9] forState:UIControlStateNormal];
     }
     _isLiked = isLiked;
 }
 
 -(void) setIsFaved:(BOOL)isFaved {
-    [self.Favorites setBackgroundColor:isFaved?[UIColor yellowColor]:[UIColor clearColor]];
-    [self.Favorites setTitleColor:isFaved?[UIColor whiteColor]:[UIColor yellowColor] forState:UIControlStateNormal];
+    if (isFaved){
+        [self.Favorites setBackgroundColor:[[UIColor alloc] initWithRed:1. green:1. blue:1.0 alpha:0.40]];
+        [self.Favorites setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+    } else {
+        [self.Favorites setBackgroundColor:[UIColor clearColor]];
+        [self.Favorites setTitleColor:[[UIColor alloc] initWithRed:1. green:1. blue:0.0 alpha:0.9] forState:UIControlStateNormal];
+    }
     
     _isFaved = isFaved;
 }
