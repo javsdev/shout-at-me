@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPostViewController">
             <connections>
+                <outlet property="lblAudioFile" destination="6PP-ip-vog" id="lmS-iE-tv1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +14,117 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yU-D0-0dg">
+                    <rect key="frame" x="236" y="537" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="cfO-Em-Iyg"/>
+                        <constraint firstAttribute="height" constant="50" id="llv-5G-imS"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="Micro Filled-50">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doTakeAudio:" destination="-1" eventType="touchUpInside" id="pIJ-Pe-n5W"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUv-UN-vxl">
+                    <rect key="frame" x="304" y="537" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Pdk-wv-NtY"/>
+                        <constraint firstAttribute="width" constant="50" id="bGn-As-SpN"/>
+                    </constraints>
+                    <state key="normal" image="Opened Folder Filled-50">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doAudioFolder:" destination="-1" eventType="touchUpInside" id="frS-r2-97Q"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xx-eT-K1Z">
+                    <rect key="frame" x="562" y="562" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="SQM-UN-0EN"/>
+                        <constraint firstAttribute="height" constant="30" id="x6f-BI-Xa2"/>
+                    </constraints>
+                    <state key="normal" title="Use">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnUse:" destination="-1" eventType="touchUpInside" id="rXo-0e-QE8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjv-hz-jgZ">
+                    <rect key="frame" x="8" y="562" width="35" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="EZl-Fr-MP4"/>
+                        <constraint firstAttribute="width" constant="35" id="vE9-cW-zpa"/>
+                    </constraints>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnBack:" destination="-1" eventType="touchUpInside" id="RRe-5d-liL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml5-Jf-CQH">
+                    <rect key="frame" x="250" y="285" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ch5-P5-W4n"/>
+                        <constraint firstAttribute="width" constant="30" id="p8p-jA-hCw"/>
+                    </constraints>
+                    <state key="normal" title="Play">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnPlay:" destination="-1" eventType="touchUpInside" id="smg-CF-wxV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joc-AO-DmV">
+                    <rect key="frame" x="318" y="285" width="33" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="33" id="SI0-1T-QHL"/>
+                        <constraint firstAttribute="height" constant="30" id="vNH-vY-uAJ"/>
+                    </constraints>
+                    <state key="normal" title="Stop">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnStop:" destination="-1" eventType="touchUpInside" id="oKi-Ch-IS0"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio no available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PP-ip-vog">
+                    <rect key="frame" x="8" y="36" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Zni-zd-dgC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5xx-eT-K1Z" secondAttribute="trailing" constant="8" id="45x-fv-s5R"/>
+                <constraint firstAttribute="centerX" secondItem="4yU-D0-0dg" secondAttribute="centerX" constant="39" id="8lr-SW-hdT"/>
+                <constraint firstAttribute="centerX" secondItem="joc-AO-DmV" secondAttribute="centerX" constant="-34.5" id="99a-mK-Bz8"/>
+                <constraint firstItem="fjv-hz-jgZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="CiC-Kv-dV9"/>
+                <constraint firstAttribute="bottom" secondItem="dUv-UN-vxl" secondAttribute="bottom" constant="13" id="FkY-Vm-alB"/>
+                <constraint firstAttribute="bottom" secondItem="4yU-D0-0dg" secondAttribute="bottom" constant="13" id="JAz-Jc-c1X"/>
+                <constraint firstAttribute="centerY" secondItem="ml5-Jf-CQH" secondAttribute="centerY" id="Jw7-mK-Nq1"/>
+                <constraint firstAttribute="bottom" secondItem="5xx-eT-K1Z" secondAttribute="bottom" constant="8" id="RmI-VK-aKT"/>
+                <constraint firstAttribute="bottom" secondItem="fjv-hz-jgZ" secondAttribute="bottom" constant="8" id="ePD-l9-a1s"/>
+                <constraint firstItem="6PP-ip-vog" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="eXg-IZ-pUk"/>
+                <constraint firstAttribute="trailing" secondItem="6PP-ip-vog" secondAttribute="trailing" constant="8" id="onm-dc-DBf"/>
+                <constraint firstAttribute="centerX" secondItem="ml5-Jf-CQH" secondAttribute="centerX" constant="35" id="p9D-O9-ooP"/>
+                <constraint firstAttribute="centerX" secondItem="dUv-UN-vxl" secondAttribute="centerX" constant="-29" id="w55-xa-fX7"/>
+                <constraint firstAttribute="centerY" secondItem="joc-AO-DmV" secondAttribute="centerY" id="ymz-zk-Fgb"/>
+                <constraint firstItem="6PP-ip-vog" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="zyL-qL-4ug"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Micro Filled-50" width="50" height="50"/>
+        <image name="Opened Folder Filled-50" width="50" height="50"/>
+    </resources>
 </document>

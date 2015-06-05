@@ -10,8 +10,11 @@
 #import "RequestResult.h"
 #import "GeoShoutApi.h"
 #import "VideoPostViewController.h"
+#import "AudioPostViewController.h"
 #import <Parse/Parse.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 
 static const int POST_TYPE_TEXT = 1;
@@ -20,7 +23,7 @@ static const int POST_TYPE_VIDEO = 3;
 static const int POST_TYPE_AUDIO = 4;
 static const int POST_TYPE_URL = 5;
 
-@interface PostVC () <UITextViewDelegate, PicturePostDelegate, VideoPostDelegate>
+@interface PostVC () <UITextViewDelegate, PicturePostDelegate, VideoPostDelegate, AudioPostDelegate>
 
 #pragma mark - Outlets
 @property (weak, nonatomic) IBOutlet UITextView *txtPostContent;
@@ -39,7 +42,10 @@ static const int POST_TYPE_URL = 5;
 @property (nonatomic, strong) MPMoviePlayerController *player;
 @property (nonatomic, strong) NSString *videoUrl;
 
-// TODO: Preview audio before posting
+// Preview audio before posting
+@property (nonatomic, strong) AVPlayerLayer *myPlayerLayer;
+@property (nonatomic, strong) AVPlayer *myavp;
+@property (nonatomic, strong) NSString *audioUrl;
 
 @end
 
@@ -118,8 +124,18 @@ static const int POST_TYPE_URL = 5;
         case POST_TYPE_TEXT:
             [self postText];
             break;
-        case POST_TYPE_IMAGE:{
+        case POST_TYPE_IMAGE:
             [self postPicture:(UIImage*)self.media];
+            break;
+        case POST_TYPE_VIDEO:
+            [self postVideo:self.videoUrl];
+            break;
+        case POST_TYPE_AUDIO: {
+            NSBundle *bundle = [NSBundle mainBundle];
+            NSString *path = [bundle pathForResource:self.audioUrl ofType:@"mp3"];
+            [self postAudio:path];
+            
+            break;
         }
     }
     
@@ -226,6 +242,32 @@ static const int POST_TYPE_URL = 5;
         }];
 }
 
+-(void) postAudio:(NSString*)audioPath {
+    CGPoint currentLocation = [UserLocation userLocation];
+    
+    NSData *content = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:audioPath]];
+    
+    [Posts postMedia:content
+             forUser:GEO_LOGGED_USER
+                 lat:currentLocation.x
+                 lng:currentLocation.y
+     withContentType:POST_TYPE_VIDEO
+   contentTypeString:@"audio/mpeg3"
+          contentExt:@"mp3"
+        onCompletion:^(RequestResult *result) {
+            if (result.success){
+                [self dismissViewControllerAnimated:true completion:nil];
+            }
+            else {
+                self.btnPostOut.hidden = false;
+                [self.txtPostContent setUserInteractionEnabled:true];
+                [self.indPosting stopAnimating];
+                
+                NSLog(@"Posting Error: %@", result.msg);
+            }
+        }];
+}
+
 - (IBAction)doPostButtons:(id)sender
 {
     UIButton *button = (UIButton*)sender;
@@ -245,7 +287,12 @@ static const int POST_TYPE_URL = 5;
             break;
         case 1:
         {
-            //AudioPost
+            AudioPostViewController *audioVC = [[AudioPostViewController alloc] initWithNibName:@"AudioPostViewController" bundle:[NSBundle mainBundle]];
+            [audioVC.view setFrame:[[UIScreen mainScreen] bounds]];
+            
+            audioVC.delegate = self;
+            
+            [self presentViewController:audioVC animated:true completion:nil];
         }
             break;
         case 2:
@@ -290,12 +337,12 @@ static const int POST_TYPE_URL = 5;
     [self.btnRemoveMedia setHidden:NO];
 }
 
--(void)didSelectVideo:(NSString *)videoUrl{
+-(void) didSelectVideo:(NSString *)videoUrl{
     NSLog(@"video selected: %@ ", videoUrl);
     
     self.videoUrl = videoUrl;
     
-    [self postVideo:videoUrl];
+    //[self postVideo:videoUrl];
     
     self.postType = POST_TYPE_VIDEO;
     
@@ -303,6 +350,14 @@ static const int POST_TYPE_URL = 5;
     [self.btnRemoveMedia setHidden:NO];
     
     [self showVideoWithURL:[NSURL fileURLWithPath:videoUrl]];
+}
+
+-(void)didSelectAudio:(NSString *)audioUrl{
+    [self playAudioWithString:audioUrl];
+    
+    self.postType = POST_TYPE_AUDIO;
+    
+    self.audioUrl = audioUrl;
 }
 
 #pragma mark - Custom methods
@@ -315,6 +370,22 @@ static const int POST_TYPE_URL = 5;
     
     [self.extraContentContainer addSubview:self.player.view];
     [self.player play];
+    
+    [self.txtPostContent setEditable:NO];
+    [self.btnRemoveMedia setHidden:NO];
+}
+
+-(void)playAudioWithString:(NSString *)urlStr {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:urlStr withExtension:@"mp3"];
+    AVAsset *asset = [AVAsset assetWithURL:url];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    self.myavp = [AVPlayer playerWithPlayerItem:playerItem];
+    self.myPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.myavp];
+    self.myPlayerLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size
+                                          .height);
+    [self.view.layer addSublayer:self.myPlayerLayer];
+    
+    [self.myavp play];
 }
 
 -(void)removeCurrentMedia{
@@ -326,6 +397,9 @@ static const int POST_TYPE_URL = 5;
             self.media = nil;
             break;
         case POST_TYPE_AUDIO:
+            [self.myavp pause];
+            
+            self.audioUrl = @"";
             break;
         case POST_TYPE_VIDEO:
             [self.player stop];
