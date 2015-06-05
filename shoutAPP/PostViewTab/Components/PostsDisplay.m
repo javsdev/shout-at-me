@@ -25,7 +25,7 @@ static NSMutableDictionary * postViewCache;
                                                             owner:self
                                                           options:nil ][0];
     
-    [imgView setFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    [imgView setFrame:view.PostDisplayView.bounds];//[imgView setFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
     [imgView initWithImageSrc:content];
     
     [view.PostDisplayView addSubview:imgView];
@@ -36,7 +36,7 @@ static NSMutableDictionary * postViewCache;
                                                             owner:self
                                                           options:nil ][0];
     [textView.TextView setText:content];
-    [textView setFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    [textView setFrame:view.PostDisplayView.bounds]; //CGRectMake(0, 0, view. .frame.size.width, view.frame.size.height)];
     [view.PostDisplayView addSubview:textView];
 }
 

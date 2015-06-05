@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shoutAPP/PostViewTab/Components/PostView.m"
-            timestampString = "455151063.784431"
+            timestampString = "455173628.616583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-actionFav:"
             landmarkType = "5">
          </BreakpointContent>

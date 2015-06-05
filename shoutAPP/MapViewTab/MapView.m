@@ -126,7 +126,7 @@
         case 2:
         case 3:{
             NSArray * use_ranges = @[@5, @15, @25, @50];
-            use_range = [use_ranges[desired_range] intValue] * 1609.344;
+            use_range = [use_ranges[desired_range] intValue] * 2 * 1609.344;
         } break;
             
         default:

@@ -31,7 +31,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="uma-nr-i2U" secondAttribute="height" multiplier="47:12" id="QWJ-B5-tQo"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <size key="titleShadowOffset" width="1" height="-1"/>
                             <state key="normal" title="follow">
@@ -47,7 +47,7 @@
                                 <action selector="FollowButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ULm-hq-D8l"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15L-F5-M3w">
+                        <view contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15L-F5-M3w">
                             <rect key="frame" x="209" y="8" width="391" height="551"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="dDH-UV-r8d">
@@ -65,23 +65,22 @@
                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88e-Dl-FAg">
                             <rect key="frame" x="209" y="562" width="391" height="34"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-iR-Grq">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOI-iR-Grq">
                                     <rect key="frame" x="2" y="2" width="125" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <size key="titleShadowOffset" width="2" height="2"/>
-                                    <state key="normal" title="lk">
-                                        <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
+                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                    <state key="normal" title="lk"/>
                                     <connections>
                                         <action selector="actionLike:" destination="iN0-l3-epB" eventType="touchUpInside" id="O1i-JG-wqR"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EH2-Qi-ymF">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EH2-Qi-ymF">
                                     <rect key="frame" x="259" y="2" width="128" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <size key="titleShadowOffset" width="2" height="2"/>
                                     <state key="normal" title="dl">
                                         <color key="titleColor" red="1" green="0.35674178880000001" blue="0.74862247859999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,11 +100,11 @@
                                 <constraint firstAttribute="height" constant="34" id="thL-CF-enH"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-IK-gu1">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-IK-gu1">
                             <rect key="frame" x="342" y="564" width="125" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="backgroundColor" red="1" green="0.17808043400000001" blue="0.35259585059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <size key="titleShadowOffset" width="2" height="2"/>
                             <state key="normal" title="fv">
                                 <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,11 +120,12 @@
                         <constraint firstItem="emc-7E-pCa" firstAttribute="top" secondItem="dDH-UV-r8d" secondAttribute="bottom" constant="19" id="6uv-SI-gnI"/>
                         <constraint firstItem="15L-F5-M3w" firstAttribute="top" secondItem="aez-el-3bK" secondAttribute="top" constant="8" id="7y4-s3-kvX"/>
                         <constraint firstItem="dDH-UV-r8d" firstAttribute="top" secondItem="aez-el-3bK" secondAttribute="top" constant="15" id="D4C-PP-dh0"/>
-                        <constraint firstItem="rfP-IK-gu1" firstAttribute="leading" secondItem="bOI-iR-Grq" secondAttribute="trailing" constant="6" id="DkC-25-71J"/>
+                        <constraint firstItem="rfP-IK-gu1" firstAttribute="leading" secondItem="bOI-iR-Grq" secondAttribute="trailing" constant="4" id="DkC-25-71J"/>
                         <constraint firstItem="dDH-UV-r8d" firstAttribute="width" secondItem="uma-nr-i2U" secondAttribute="width" id="FEA-Yh-Gen"/>
-                        <constraint firstItem="EH2-Qi-ymF" firstAttribute="leading" secondItem="rfP-IK-gu1" secondAttribute="trailing" constant="1" id="ONd-S9-JlA"/>
+                        <constraint firstItem="EH2-Qi-ymF" firstAttribute="leading" secondItem="rfP-IK-gu1" secondAttribute="trailing" constant="4" id="ONd-S9-JlA"/>
                         <constraint firstAttribute="height" secondItem="dDH-UV-r8d" secondAttribute="height" multiplier="3" id="Pdb-kP-aLd"/>
                         <constraint firstAttribute="bottom" secondItem="88e-Dl-FAg" secondAttribute="bottom" constant="4" id="Qe3-xY-NtZ"/>
+                        <constraint firstItem="rfP-IK-gu1" firstAttribute="width" secondItem="bOI-iR-Grq" secondAttribute="width" id="RE4-n6-7g4"/>
                         <constraint firstAttribute="trailing" secondItem="15L-F5-M3w" secondAttribute="trailing" id="X4I-tW-np7"/>
                         <constraint firstItem="emc-7E-pCa" firstAttribute="width" secondItem="dDH-UV-r8d" secondAttribute="width" id="Yay-uQ-eLF"/>
                         <constraint firstItem="88e-Dl-FAg" firstAttribute="centerX" secondItem="15L-F5-M3w" secondAttribute="centerX" id="ZO2-Tn-w7I"/>
