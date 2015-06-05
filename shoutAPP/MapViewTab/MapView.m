@@ -10,6 +10,15 @@
 #import "AnnotationView.h"
 #import "ShoutAnnotation.h"
 
+// pad our map by 10% around the farthest annotations
+#define MAP_PADDING 1.1
+
+// we'll make sure that our minimum vertical span is about a kilometer
+// there are ~111km to a degree of latitude. regionThatFits will take care of
+// longitude, which is more complicated, anyway.
+#define MINIMUM_VISIBLE_LATITUDE 0.01
+
+
 @interface PopOverIPhone()
 
 @end
@@ -127,14 +136,44 @@
         case 3:{
             NSArray * use_ranges = @[@5, @15, @25, @50];
             use_range = [use_ranges[desired_range] intValue] * 1609.344;
+            
+            MKCoordinateRegion c_region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lng), use_range, use_range);
+            [self.map setRegion:c_region animated:YES];
         } break;
             
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        {
+
+             [Users getUserRegionWithName:(int)desired_range forLat:lat forLng:lng onCompletion:^(Region *region) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     
+                     MKCoordinateRegion reg;
+                     reg.center.latitude = (region.startLat + region.endLat) / 2;
+                     reg.center.longitude = (region.startLng + region.endLng) / 2;
+                     
+                     reg.span.latitudeDelta = (MAX(region.startLat, region.endLat) - MIN(region.startLat, region.endLat)) * MAP_PADDING;
+                     
+                     reg.span.latitudeDelta = (reg.span.latitudeDelta < MINIMUM_VISIBLE_LATITUDE)
+                     ? MINIMUM_VISIBLE_LATITUDE
+                     : reg.span.latitudeDelta;
+                     
+                     reg.span.longitudeDelta = (MAX(region.endLng, region.startLng) - MIN(region.endLng, region.startLng)) * MAP_PADDING;
+                     
+                     MKCoordinateRegion scaledRegion = [self.map regionThatFits:reg];
+                     [self.map setRegion:scaledRegion animated:YES];
+            
+                 });
+             }];
+        }
+            break;
         default:
             break;
     }
     
-    MKCoordinateRegion c_region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lng), use_range, use_range);
-    [self.map setRegion:c_region animated:YES];
+    
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)annotationViews
@@ -236,9 +275,6 @@
                         }
                     }
                 }];
-
-//mike
-
 }
 
 

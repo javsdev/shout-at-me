@@ -10,6 +10,7 @@
 #import "RequestResult.h"
 #import "Credentials.h"
 #import "Profile.h"
+#import "Region.h"
 
 extern long GEO_LOGGED_USER;
 extern dispatch_queue_t MEDIA_DISPATCH;
@@ -53,6 +54,13 @@ extern dispatch_queue_t PROCESSING_DISPATCH;
 +(void)updateUserWithProfile:(Profile *)profile
                   withUserId:(long)userId
                 onCompletion:(void (^)(RequestResult * result)) completion;
+
++(void) getUserRegionWithName:(int)filter
+                       forLat:(double)lat
+                       forLng:(double)lng
+                 onCompletion:(void(^)(Region * region))completionl;
+
+
 
 @end;
 
@@ -114,6 +122,11 @@ contentTypeString:(NSString*)typeString
                       lng:(double)lng
              activityType:(int)activityType
              onCompletion:(void (^)(RequestResult * result)) completion;
+
++(void) locInfo:(double)lat
+        withLat:(double)lng
+   onCompletion:(void (^)(RequestResult *))completion;
+
 
 @end
 
