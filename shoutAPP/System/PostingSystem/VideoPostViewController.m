@@ -12,6 +12,7 @@
 #import "FakeVideoViewController.h"
 
 @interface VideoPostViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,FakeVideoDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *pictureSourceTableView;
 
 @property UIImagePickerController *picker;

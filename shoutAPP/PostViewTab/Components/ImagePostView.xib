@@ -10,11 +10,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKM-sf-wCE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKM-sf-wCE">
                     <rect key="frame" x="8" y="25" width="584" height="567"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="jKM-sf-wCE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="Bfn-rO-EzH"/>
                 <constraint firstAttribute="trailing" secondItem="jKM-sf-wCE" secondAttribute="trailing" constant="8" id="Fc4-jR-4h0"/>

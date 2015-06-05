@@ -15,7 +15,8 @@
 typedef enum {
     PostCellSizeSmall,
     PostCellSizeMedium,
-    PostCellSizeLarge
+    PostCellSizeLarge,
+    PostMapAnnotation
 } PostCellSize;
 
 typedef enum {
@@ -26,8 +27,9 @@ typedef enum {
 @interface PostsDisplay : NSObject
 
 +(PostView*) cachedViewForPostWithId: (long)postId;
-+(PostView*)viewForPost:(GeoPost*)post;
++(PostView*) viewForPost:(GeoPost*)post;
 +(void) initRectSizesForSize:(CGSize)size withCellSpace:(float)space;
 +(CGSize) sizeForCellSize:(PostCellSize)size withOrientation:(PostCellViewOrientation)oriented;
++(void) resetCache;
 
 @end

@@ -49,8 +49,10 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [self updatePostsForMap];
+    if (GEO_LOGGED_USER){
+        [PostsDisplay resetCache];
+        [self updatePostsForMap];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +120,7 @@
         [self.map setRegion:viewRegion animated:YES];
 
         AnnotationView * anView = [AnnotationView new];
-        CGSize annotSize = [PostsDisplay sizeForCellSize:PostCellSizeSmall withOrientation:PostCellViewOrientationPortait];
+        CGSize annotSize = [PostsDisplay sizeForCellSize:PostCellSizeMedium withOrientation:PostCellViewOrientationPortait];
         [anView setFrame:CGRectMake(0, 0, annotSize.width, annotSize.height)];
         [anView initWithPostId:shoutAnn.postId];
 
@@ -137,9 +139,6 @@
         case 3:{
             NSArray * use_ranges = @[@5, @15, @25, @50];
             use_range = [use_ranges[desired_range] intValue] * 2 * 1609.344;
-            
-            MKCoordinateRegion c_region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lng), use_range, use_range);
-            [self.map setRegion:c_region animated:YES];
         } break;
             
         case 4:
