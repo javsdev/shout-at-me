@@ -12,6 +12,7 @@
 		0412CD971B2184AC00ACACE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412CD961B2184AC00ACACE6 /* AVFoundation.framework */; };
 		0412CD981B2184BB00ACACE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499556181B1D641600C3D855 /* QuartzCore.framework */; };
 		0412CD9D1B219D5F00ACACE6 /* PostContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0412CD9C1B219D5F00ACACE6 /* PostContainer.m */; };
+		0412CD9F1B21EF0400ACACE6 /* cognito-identity-2014-06-30.json in Resources */ = {isa = PBXBuildFile; fileRef = 0412CD9E1B21EF0400ACACE6 /* cognito-identity-2014-06-30.json */; };
 		0498DD9A1B1D5ABF00C41DAE /* s3-2006-03-01.json in Resources */ = {isa = PBXBuildFile; fileRef = 0498DD991B1D5ABF00C41DAE /* s3-2006-03-01.json */; };
 		0498E8791B1DD70600C41DAE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0498E8781B1DD70600C41DAE /* libz.dylib */; };
 		0498E87B1B1DD71300C41DAE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0498E87A1B1DD71300C41DAE /* SystemConfiguration.framework */; };
@@ -124,7 +125,6 @@
 		89BE9C811B214BB4003E74B6 /* sample_iTunes.mov in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */; };
 		89BE9C821B214BB4003E74B6 /* VideoPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */; };
 		89BE9C831B214BB4003E74B6 /* VideoPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */; };
-		89BE9C851B215AFB003E74B6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BE9C841B215AFB003E74B6 /* AVFoundation.framework */; };
 		89BE9C911B2168C4003E74B6 /* 0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C871B2168C4003E74B6 /* 0.wav */; };
 		89BE9C921B2168C4003E74B6 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C881B2168C4003E74B6 /* 1.wav */; };
 		89BE9C931B2168C4003E74B6 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C891B2168C4003E74B6 /* 2.wav */; };
@@ -184,6 +184,7 @@
 		0412CD961B2184AC00ACACE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0412CD9B1B219D5F00ACACE6 /* PostContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostContainer.h; sourceTree = "<group>"; };
 		0412CD9C1B219D5F00ACACE6 /* PostContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostContainer.m; sourceTree = "<group>"; };
+		0412CD9E1B21EF0400ACACE6 /* cognito-identity-2014-06-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cognito-identity-2014-06-30.json"; sourceTree = "<group>"; };
 		0498DD991B1D5ABF00C41DAE /* s3-2006-03-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "s3-2006-03-01.json"; sourceTree = "<group>"; };
 		0498E8781B1DD70600C41DAE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0498E87A1B1DD71300C41DAE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -354,7 +355,6 @@
 		89BE9C761B214BB4003E74B6 /* VideoPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPostViewController.h; sourceTree = "<group>"; };
 		89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPostViewController.m; sourceTree = "<group>"; };
 		89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoPostViewController.xib; sourceTree = "<group>"; };
-		89BE9C841B215AFB003E74B6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		89BE9C871B2168C4003E74B6 /* 0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.wav; sourceTree = "<group>"; };
 		89BE9C881B2168C4003E74B6 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
 		89BE9C891B2168C4003E74B6 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
@@ -753,6 +753,7 @@
 				4944A8561B21645400C9889C /* shoutAPP WatchKit App */,
 				49F85BD31B16ADBF0058F705 /* Products */,
 				0498DD991B1D5ABF00C41DAE /* s3-2006-03-01.json */,
+				0412CD9E1B21EF0400ACACE6 /* cognito-identity-2014-06-30.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1037,6 +1038,7 @@
 				49824FE61B1EB8D70030F3AD /* ProfileVC.xib in Resources */,
 				49824F7C1B1EB6230030F3AD /* FILTROCD_BTN.png in Resources */,
 				89BE9C991B2168C4003E74B6 /* 8.wav in Resources */,
+				0412CD9F1B21EF0400ACACE6 /* cognito-identity-2014-06-30.json in Resources */,
 				49824F7E1B1EB6230030F3AD /* pictureFolder.png in Resources */,
 				49824F791B1EB6230030F3AD /* BS_ICONO_SEARCH.png in Resources */,
 				89BE9C9A1B2168C4003E74B6 /* 9.wav in Resources */,
@@ -1402,6 +1404,7 @@
 				4944A8641B21645400C9889C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4944A8661B21645400C9889C /* Build configuration list for PBXNativeTarget "shoutAPP WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1410,6 +1413,7 @@
 				4944A8621B21645400C9889C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49F85BCD1B16ADBF0058F705 /* Build configuration list for PBXProject "shoutAPP" */ = {
 			isa = XCConfigurationList;
