@@ -94,12 +94,15 @@ contentTypeString:(NSString*)typeString
       contentExt:(NSString*)ext
     onCompletion:(void (^)(RequestResult *))completion;
 
-+(void) postText:(NSString*)posts forUser:(long)usr withLattitude:(double)lat withLongitude:(double)lng onCompletion:(void (^)(RequestResult * result)) completion;
-+(void) postMedia:(NSObject *)content forUser:(long)userId lat:(double)lat lng:(double)lng;
-+(void) postUrlContent:(NSObject *)content forUser:(long)userId lat:(double)lat lng:(double)lng;
-+(void) likeTogglePost:(long)postId forUser:(long)userId;
-+(void) favoriteTogglePost:(long)postId forUser:(long)userId;
-+(void) dislikeTogglePost:(long)postId forUser:(long)userId;
++(void) postText:(NSString*)posts forUser:(long)usr
+                    withLattitude:(double)lat
+                    withLongitude:(double)lng
+                    onCompletion:(void (^)(RequestResult * result)) completion;
+//+(void) postMedia:(NSObject *)content forUser:(long)userId lat:(double)lat lng:(double)lng;
+//+(void) postUrlContent:(NSObject *)content forUser:(long)userId lat:(double)lat lng:(double)lng;
+//+(void) likeTogglePost:(long)postId forUser:(long)userId;
+//+(void) favoriteTogglePost:(long)postId forUser:(long)userId;
+//+(void) dislikeTogglePost:(long)postId forUser:(long)userId;
 
 +(void) postUrlContent:(NSObject *)content forUser:(long)userId lat:(double)lat lng:(double)lng
           onCompletion:(void (^)(RequestResult * result)) completion;
@@ -116,12 +119,12 @@ contentTypeString:(NSString*)typeString
                        lng:(double)lng
               onCompletion:(void (^)(RequestResult * result)) completion;
 
-+(void) dislikeTogglePost:(long)postId
-                  forUser:(long)userId
-                      lat:(double)lat
-                      lng:(double)lng
-             activityType:(int)activityType
-             onCompletion:(void (^)(RequestResult * result)) completion;
+//+(void) dislikeTogglePost:(long)postId
+//                  forUser:(long)userId
+//                      lat:(double)lat
+//                      lng:(double)lng
+//             activityType:(int)activityType
+//             onCompletion:(void (^)(RequestResult * result)) completion;
 
 +(void) locInfo:(double)lat
         withLat:(double)lng

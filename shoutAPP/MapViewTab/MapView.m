@@ -47,7 +47,7 @@
     self.navigationController.modalPresentationStyle = UIModalPresentationPopover;
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewDidAppear:(BOOL)animated
 {
 //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     [self updatePostsForMap];
@@ -66,6 +66,7 @@
         
         pinView.image = [UIImage imageNamed:@"location"];
         [pinView setFrame:CGRectMake(0, 0, 25, 25)];
+        pinView.enabled = false;
         return pinView;
     }
     
@@ -135,7 +136,7 @@
         case 2:
         case 3:{
             NSArray * use_ranges = @[@5, @15, @25, @50];
-            use_range = [use_ranges[desired_range] intValue] * 1609.344;
+            use_range = [use_ranges[desired_range] intValue] * 2 * 1609.344;
             
             MKCoordinateRegion c_region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(lat, lng), use_range, use_range);
             [self.map setRegion:c_region animated:YES];
@@ -246,7 +247,7 @@
           forPlaceHolderDate:0
               forRefreshType:@"forward"
                  strideStart:0
-                   strideEnd:0
+                   strideEnd:50
                 onCompletion:^(RequestResult *results) {
 
                     if (results.success)

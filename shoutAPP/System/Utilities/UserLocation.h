@@ -14,6 +14,7 @@
 +(void) startStandarUpdates;
 +(CGPoint) userLocation;
 
+-(void)locationRefresh;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations;
 
 @end

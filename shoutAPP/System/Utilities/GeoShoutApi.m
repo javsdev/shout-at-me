@@ -221,13 +221,25 @@ static NSString *const USER_LOCATION_INFO = @"https://maps.googleapis.com/maps/a
                      else{
                          NSMutableDictionary *dictInfo = [NSMutableDictionary new];
                          dictInfo = (NSMutableDictionary*)responseObject;
-                         
-                         NSDictionary *dictGeometry =[[[[dictInfo objectForKey:@"results"] objectAtIndex:0] objectForKey:@"geometry"] objectForKey:@"bounds"];
-                         
-                         reg.startLat = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lat"] floatValue];
-                         reg.startLng = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lng"] floatValue];
-                         reg.endLat = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lat"] floatValue];
-                         reg.endLng = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lng"] floatValue];
+                         if ([[dictInfo objectForKey:@"status"] isEqualToString:@"OK"] ) {
+                             
+                             
+                             
+                             NSDictionary *dictGeometry =[[[[dictInfo objectForKey:@"results"] objectAtIndex:0] objectForKey:@"geometry"] objectForKey:@"bounds"];
+                             
+                             reg.startLat = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lat"] floatValue];
+                             reg.startLng = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lng"] floatValue];
+                             reg.endLat = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lat"] floatValue];
+                             reg.endLng = [[[dictGeometry objectForKey:@"southwest"] objectForKey:@"lng"] floatValue];
+                         }
+                         else
+                         {
+                             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                                            message:@"We Need User Location"
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                             [alert show];
+                         }
                      }
                      
                      if (completion){
@@ -497,6 +509,11 @@ contentTypeString:(NSString*)typeString
     
     [GeoShoutApi makeApiRequestWithParameters:params withScript:@"posts.php" onCompletion:completion];
 }
+
+
+
+
+
 
 
 +(void) locInfo:(double)lat
