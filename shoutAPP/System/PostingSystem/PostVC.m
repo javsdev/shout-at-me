@@ -16,8 +16,8 @@
 
 static const int POST_TYPE_TEXT = 1;
 static const int POST_TYPE_IMAGE = 2;
-static const int POST_TYPE_AUDIO = 3;
-static const int POST_TYPE_VIDEO = 4;
+static const int POST_TYPE_VIDEO = 3;
+static const int POST_TYPE_AUDIO = 4;
 static const int POST_TYPE_URL = 5;
 
 @interface PostVC () <UITextViewDelegate, PicturePostDelegate, VideoPostDelegate>

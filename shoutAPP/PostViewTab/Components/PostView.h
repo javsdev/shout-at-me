@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GeoPost.h"
+#import "PostContainer.h"
 
 @interface PostView : UIView
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *Dislikes;
 @property (weak, nonatomic) IBOutlet UIButton *Favorites;
 @property (weak, nonatomic) IBOutlet UIButton *Likes;
-@property (weak, nonatomic) IBOutlet UIView *PostDisplayView;
+@property (weak, nonatomic) IBOutlet PostContainer *PostDisplayView;
 @property (weak, nonatomic) IBOutlet UIImageView *DisplayPicture;
 @property (weak, nonatomic) IBOutlet UIButton *FollowButton;
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		040630F11B1EDDE600645A4F /* ImagePostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040630EF1B1EDDE600645A4F /* ImagePostView.m */; };
 		040630F21B1EDDE600645A4F /* ImagePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040630F01B1EDDE600645A4F /* ImagePostView.xib */; };
+		0412CD971B2184AC00ACACE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0412CD961B2184AC00ACACE6 /* AVFoundation.framework */; };
+		0412CD981B2184BB00ACACE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499556181B1D641600C3D855 /* QuartzCore.framework */; };
+		0412CD9D1B219D5F00ACACE6 /* PostContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0412CD9C1B219D5F00ACACE6 /* PostContainer.m */; };
 		0498DD9A1B1D5ABF00C41DAE /* s3-2006-03-01.json in Resources */ = {isa = PBXBuildFile; fileRef = 0498DD991B1D5ABF00C41DAE /* s3-2006-03-01.json */; };
 		0498E8791B1DD70600C41DAE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0498E8781B1DD70600C41DAE /* libz.dylib */; };
 		0498E87B1B1DD71300C41DAE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0498E87A1B1DD71300C41DAE /* SystemConfiguration.framework */; };
@@ -128,6 +131,9 @@
 		040630EE1B1EDDE600645A4F /* ImagePostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePostView.h; sourceTree = "<group>"; };
 		040630EF1B1EDDE600645A4F /* ImagePostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePostView.m; sourceTree = "<group>"; };
 		040630F01B1EDDE600645A4F /* ImagePostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePostView.xib; sourceTree = "<group>"; };
+		0412CD961B2184AC00ACACE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0412CD9B1B219D5F00ACACE6 /* PostContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostContainer.h; sourceTree = "<group>"; };
+		0412CD9C1B219D5F00ACACE6 /* PostContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostContainer.m; sourceTree = "<group>"; };
 		0498DD991B1D5ABF00C41DAE /* s3-2006-03-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "s3-2006-03-01.json"; sourceTree = "<group>"; };
 		0498E8781B1DD70600C41DAE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0498E87A1B1DD71300C41DAE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -291,6 +297,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0412CD981B2184BB00ACACE6 /* QuartzCore.framework in Frameworks */,
+				0412CD971B2184AC00ACACE6 /* AVFoundation.framework in Frameworks */,
 				49824F1B1B1EB5D50030F3AD /* AWSCognito.framework in Frameworks */,
 				49824F201B1EB5D50030F3AD /* AWSKinesis.framework in Frameworks */,
 				49824F741B1EB6230030F3AD /* Parse.framework in Frameworks */,
@@ -532,6 +540,8 @@
 				040630EE1B1EDDE600645A4F /* ImagePostView.h */,
 				040630EF1B1EDDE600645A4F /* ImagePostView.m */,
 				040630F01B1EDDE600645A4F /* ImagePostView.xib */,
+				0412CD9B1B219D5F00ACACE6 /* PostContainer.h */,
+				0412CD9C1B219D5F00ACACE6 /* PostContainer.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -611,6 +621,7 @@
 		49F85BC91B16ADBF0058F705 = {
 			isa = PBXGroup;
 			children = (
+				0412CD961B2184AC00ACACE6 /* AVFoundation.framework */,
 				49F85BD41B16ADBF0058F705 /* shoutAPP */,
 				49F85BF11B16ADBF0058F705 /* shoutAPPTests */,
 				49F85BD31B16ADBF0058F705 /* Products */,
@@ -830,6 +841,7 @@
 				49824F9A1B1EB6370030F3AD /* AFHTTPRequestOperationManager.m in Sources */,
 				49824FC51B1EB64C0030F3AD /* PostView.m in Sources */,
 				49F85BDB1B16ADBF0058F705 /* AppDelegate.m in Sources */,
+				0412CD9D1B219D5F00ACACE6 /* PostContainer.m in Sources */,
 				49824F661B1EB6230030F3AD /* MenuCustomCell.m in Sources */,
 				49824F7F1B1EB6230030F3AD /* TopBarView.m in Sources */,
 				49824F811B1EB6230030F3AD /* UserLocation.m in Sources */,
@@ -980,6 +992,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -995,6 +1008,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1002,6 +1016,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

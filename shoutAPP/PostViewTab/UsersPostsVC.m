@@ -35,7 +35,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    if (GEO_LOGGED_USER) [self updatePostsForCollectionView];
+    if (GEO_LOGGED_USER) {
+        [PostsDisplay resetCache];
+        [self updatePostsForCollectionView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,7 +71,15 @@
 }
 
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [PostsDisplay sizeForCellSize:PostCellSizeMedium withOrientation:PostCellViewOrientationPortait];
+    
+    switch ([[self.PostsIDS[indexPath.row] valueForKey:@"content_type"] integerValue]){
+        case 1: return [PostsDisplay sizeForCellSize:PostCellSizeMedium withOrientation:PostCellViewOrientationPortait]; break;
+        case 2: return [PostsDisplay sizeForCellSize:PostCellSizeLarge withOrientation:PostCellViewOrientationPortait]; break;
+        case 3: return [PostsDisplay sizeForCellSize:PostCellSizeSmall withOrientation:PostCellViewOrientationPortait]; break;
+        case 4: return [PostsDisplay sizeForCellSize:PostCellSizeLarge withOrientation:PostCellViewOrientationPortait];
+    }
+    
+    return [PostsDisplay sizeForCellSize:PostCellSizeSmall withOrientation:PostCellViewOrientationPortait];
 }
 
 #pragma mark - TopBarDelegates

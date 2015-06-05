@@ -223,8 +223,6 @@ static NSString *const USER_LOCATION_INFO = @"https://maps.googleapis.com/maps/a
                          dictInfo = (NSMutableDictionary*)responseObject;
                          if ([[dictInfo objectForKey:@"status"] isEqualToString:@"OK"] ) {
                              
-                             
-                             
                              NSDictionary *dictGeometry =[[[[dictInfo objectForKey:@"results"] objectAtIndex:0] objectForKey:@"geometry"] objectForKey:@"bounds"];
                              
                              reg.startLat = [[[dictGeometry objectForKey:@"northeast"] objectForKey:@"lat"] floatValue];
@@ -234,11 +232,15 @@ static NSString *const USER_LOCATION_INFO = @"https://maps.googleapis.com/maps/a
                          }
                          else
                          {
-                             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                
+                                 
+                                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
                                                                             message:@"We Need User Location"
                                                                            delegate:self
                                                                   cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                             [alert show];
+                                 [alert show];
+                             });
                          }
                      }
                      
