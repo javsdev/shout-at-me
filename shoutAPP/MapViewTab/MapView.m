@@ -49,8 +49,10 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [self updatePostsForMap];
+    if (GEO_LOGGED_USER){
+        [PostsDisplay resetCache];
+        [self updatePostsForMap];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +120,7 @@
         [self.map setRegion:viewRegion animated:YES];
 
         AnnotationView * anView = [AnnotationView new];
-        CGSize annotSize = [PostsDisplay sizeForCellSize:PostCellSizeSmall withOrientation:PostCellViewOrientationPortait];
+        CGSize annotSize = [PostsDisplay sizeForCellSize:PostCellSizeMedium withOrientation:PostCellViewOrientationPortait];
         [anView setFrame:CGRectMake(0, 0, annotSize.width, annotSize.height)];
         [anView initWithPostId:shoutAnn.postId];
 

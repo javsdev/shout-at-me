@@ -61,7 +61,7 @@
                          if (result.success){
                              self.Post = [[GeoPost alloc] initWithDictionary:result.extra];
                              UIView * viewForPost = [PostsDisplay viewForPost:self.Post];
-                             [viewForPost setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+                             [viewForPost setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)]; NSLog(@"%li", self.frame.size.width);
                              [viewForPost setCenter:CGPointMake(viewForPost.center.x - viewForPost.frame.size.width/2, viewForPost.center.y - viewForPost.frame.size.height)];
                              [self addSubview: viewForPost];
                          }

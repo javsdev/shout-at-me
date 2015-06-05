@@ -18,7 +18,6 @@
 #import <Parse/Parse.h>
 #import <AWSCore/AWSCore.h>
 #import <AWSCognito/AWSCognito.h>
-
 #define TOP_BAR_OFFSET  76.0
 
 @interface AppDelegate ()<ShoutMenuViewDelegate>
@@ -217,6 +216,27 @@ dispatch_queue_t PROCESSING_DISPATCH;
     ProfileVC *profileVC = [[ProfileVC alloc] initWithNibName:@"ProfileVC" bundle:[NSBundle mainBundle]];
     
     [self.window.rootViewController presentViewController:profileVC animated:YES completion:nil];
+}
+
+#pragma mark - AppleWatch
+
+
+
+
+- (void) application:(UIApplication *)application
+handleWatchKitExtensionRequest:(NSDictionary *)userInfo
+               reply:(void (^)(NSDictionary *))reply
+
+{
+//    
+//    UsersPostsVC *mainController = (UsersPostsVC*)  self.tabBar.viewControllers[0];
+//    
+//    NSDictionary *serializedLocation = [mainController getSerializedLocation];
+//    
+//    reply(@{@"location": serializedLocation});
+//
+//    
+//    
 }
 
 @end

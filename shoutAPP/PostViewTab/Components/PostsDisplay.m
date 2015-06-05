@@ -9,26 +9,19 @@
 #import "PostsDisplay.h"
 #import "TextPostView.h"
 #import "ImagePostView.h"
+#import <AVFoundation/AVFoundation.h>
 
 static float PostCellFullWidth;
 static float PostCellFullHeight;
 static float PostCellHalfWidth;
 static float PostCellHalfHeight;
+static float PostAnnotFullWidth;
+static float PostAnnotFullHeight;
 static BOOL SizesInit = false;
 
 static NSMutableDictionary * postViewCache;
 
 @implementation PostsDisplay
-
-+(void) postHandle_img:(PostView*)view withContent:(NSString*)content {
-    ImagePostView * imgView = [[NSBundle mainBundle] loadNibNamed:@"ImagePostView"
-                                                            owner:self
-                                                          options:nil ][0];
-    
-    [imgView setFrame:view.PostDisplayView.bounds];
-    [imgView initWithImageSrc:content];
-    [view.PostDisplayView addSubview:imgView];
-}
 
 +(void) postHandle_txt:(PostView*)view withContent:(NSString*)content {
     TextPostView * textView = [[NSBundle mainBundle] loadNibNamed:@"TextPostView"
@@ -41,6 +34,37 @@ static NSMutableDictionary * postViewCache;
     [view.PostDisplayView addSubview:textView];
 }
 
++(void) postHandle_img:(PostView*)view withContent:(NSString*)content {
+    ImagePostView * imgView = [[NSBundle mainBundle] loadNibNamed:@"ImagePostView"
+                                                            owner:self
+                                                          options:nil ][0];
+    
+    [imgView setFrame:view.PostDisplayView.bounds];
+    [imgView initWithImageSrc:content];
+    [view.PostDisplayView addSubview:imgView];
+}
+
+
++(void) postHandle_vid:(PostView*)view withContent:(NSString*)content{
+    AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:content]]; //
+    
+    AVPlayerLayer *layer = [AVPlayerLayer layer];
+    
+    [layer setPlayer:player];
+    [layer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+
+    [view.PostDisplayView.layer addSublayer:layer];
+    view.PostDisplayView.player = layer;
+    
+    UIButton *playToggle = [[UIButton alloc] initWithFrame:CGRectMake(5, 5, 95, 200)];
+    [playToggle setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    [playToggle setTitle:@"Play" forState:UIControlStateNormal];
+    [playToggle addTarget:view.PostDisplayView action:@selector(playerToggle) forControlEvents:UIControlEventTouchDown];
+    
+    [view.PostDisplayView addSubview:playToggle];
+}
+
 +(void) postTypeHandle:(GeoPost*)post withView:(PostView*)view{
     if (post){
         switch (post.content_type) {
@@ -50,7 +74,12 @@ static NSMutableDictionary * postViewCache;
             case 2: // handles images
                 [PostsDisplay postHandle_img:view withContent:post.contents];
                 break;
+            case 3:
+            case 4: // handles videos and audio
+                [PostsDisplay postHandle_vid:view withContent:post.contents];
+                break;
         }
+        NSLog(@"%f,%f", view.PostDisplayView.frame.size.width,view.PostDisplayView.frame.size.height);
     }
 }
 
@@ -101,10 +130,10 @@ static NSMutableDictionary * postViewCache;
     PostCellHalfHeight = (size.height-space) / 2;
     PostCellFullWidth = size.width;
     PostCellFullHeight = size.height;
+    PostAnnotFullWidth = size.width * 0.6;
+    PostAnnotFullHeight = size.height * 0.4;
     
-    SizesInit = true;
-    
-    postViewCache = [NSMutableDictionary new];
+    SizesInit = true;    
 }
 
 +(CGSize) sizeForCellSize:(PostCellSize)size withOrientation:(PostCellViewOrientation)oriented {
@@ -121,9 +150,15 @@ static NSMutableDictionary * postViewCache;
                                                    oriented==PostCellViewOrientationPortait? PostCellFullWidth:PostCellFullHeight,
                                                   oriented==PostCellViewOrientationPortait? PostCellFullWidth:PostCellFullHeight);
             break;
+        case PostMapAnnotation: return CGSizeMake( oriented==PostCellViewOrientationPortait? PostAnnotFullWidth:PostAnnotFullHeight,
+                                                  oriented==PostCellViewOrientationPortait? PostAnnotFullWidth:PostAnnotFullHeight);
     }
     
     return CGSizeMake(50, 50);
+}
+
++(void) resetCache{
+    postViewCache = [NSMutableDictionary new];
 }
 
 @end

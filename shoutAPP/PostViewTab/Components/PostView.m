@@ -7,6 +7,8 @@
 //
 
 #import "PostView.h"
+#import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation PostView
 
@@ -138,4 +140,11 @@ bool _isFaved;
 - (IBAction)actionDislike:(UIButton *)sender {
 
 }
+
+-(void) layoutSublayersOfLayer:(CALayer *)layer{
+    if ( self.PostDisplayView.subviews.count && [((UIView*)(self.PostDisplayView.subviews[0])).layer.sublayers[0] isKindOfClass:[AVPlayerLayer class]] ){
+        [((UIView*)(self.PostDisplayView.subviews[0])).layer setFrame:self.bounds];
+    }
+}
+
 @end
