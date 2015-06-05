@@ -17,8 +17,5 @@
 @interface PicturePostViewController : UIViewController
 
 @property (nonatomic, weak) id<PicturePostDelegate> delegate;
-@property (strong, nonatomic) IBOutlet UIImageView *imgView;
-- (IBAction)doTakePicture:(id)sender;
-- (IBAction)doPictureFolder:(id)sender;
 
 @end

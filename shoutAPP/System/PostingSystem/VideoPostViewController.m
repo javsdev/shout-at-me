@@ -13,11 +13,12 @@
 
 @interface VideoPostViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,FakeVideoDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *pictureSourceTableView;
-
 @property UIImagePickerController *picker;
 @property (nonatomic, strong) MPMoviePlayerController *player;
 @property (nonatomic, strong) NSString *videoUrl;
+- (IBAction)doVideoFolder:(id)sender;
+
+- (IBAction)doTakeVideo:(id)sender;
 
 @end
 
@@ -35,27 +36,6 @@
 }
 
 #pragma mark - Custom Methods
--(void) createDatePickerAndShow
-{
-    [self.pictureSourceTableView setHidden:NO];
-    CGFloat pickerViewYpositionHidden = self.view.frame.size.height + self.pictureSourceTableView.frame.size.height;
-    CGFloat pickerViewYposition = self.view.frame.size.height - self.pictureSourceTableView.frame.size.height;
-    NSLog(@"pickerViewPositionHidden:%.2f",pickerViewYpositionHidden);
-    NSLog(@"pickerViewPosition:%.2f",pickerViewYposition);
-    [self.pictureSourceTableView setFrame:CGRectMake(self.pictureSourceTableView.frame.origin.x,
-                                                     pickerViewYpositionHidden,
-                                                     self.pictureSourceTableView.frame.size.width,
-                                                     self.pictureSourceTableView.frame.size.height)];
-    
-    [UIView animateWithDuration:0.5f
-                     animations:^{
-                         [self.pictureSourceTableView setFrame:CGRectMake(self.pictureSourceTableView.frame.origin.x,
-                                                                          pickerViewYposition,
-                                                                          self.pictureSourceTableView.frame.size.width,
-                                                                          self.pictureSourceTableView.frame.size.height)];
-                     }
-                     completion:nil];
-}
 
 -(void)showVideoWithURL:(NSURL *)url {
     self.player = [[MPMoviePlayerController alloc] initWithContentURL: url];
@@ -85,9 +65,14 @@ finishedSavingWithError:(NSError *)error
     NSLog(@"PhotoLibrary Functions.");
     self.picker = [[UIImagePickerController alloc]init];
     self.picker.delegate = self;
-    [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    self.picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-    [self presentViewController:self.picker animated:YES completion:NULL];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [self.picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        self.picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+        [self presentViewController:self.picker animated:YES completion:NULL];
+    } else {
+        NSLog(@"No device available for getting videos from dir");
+    }
 }
 
 #pragma mark - Action methods
@@ -97,10 +82,10 @@ finishedSavingWithError:(NSError *)error
     [self.player stop];
     
     // TODO: For production
-    //[self showFileSystemPicker];
+    [self showFileSystemPicker];
     
     // TODO: For testing without device
-    [self showFakeFileSystemPicker];
+    //[self showFakeFileSystemPicker];
 }
 
 - (IBAction)doTakeVideo:(id)sender
@@ -127,7 +112,7 @@ finishedSavingWithError:(NSError *)error
         
         [self.picker startVideoCapture];
     } else {
-        NSLog(@"Not device available");
+        NSLog(@"Not device available for taking video");
     }
 }
 

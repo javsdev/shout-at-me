@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CE86CEE2AB6B92D6D8E6D92709CFB6A078884A55</key>
-		<string>https://github.com/javsdev/shout-at-me</string>
+		<string>https://github.com/javsdev/shout-at-me.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>shoutAPP.xcodeproj/project.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/javsdev/shout-at-me</string>
+	<string>https://github.com/javsdev/shout-at-me.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

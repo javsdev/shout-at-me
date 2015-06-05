@@ -19,8 +19,8 @@
 
 static const int POST_TYPE_TEXT = 1;
 static const int POST_TYPE_IMAGE = 2;
-static const int POST_TYPE_AUDIO = 3;
-static const int POST_TYPE_VIDEO = 4;
+static const int POST_TYPE_VIDEO = 3;
+static const int POST_TYPE_AUDIO = 4;
 static const int POST_TYPE_URL = 5;
 
 @interface PostVC () <UITextViewDelegate, PicturePostDelegate, VideoPostDelegate, AudioPostDelegate>
@@ -251,9 +251,11 @@ static const int POST_TYPE_URL = 5;
              forUser:GEO_LOGGED_USER
                  lat:currentLocation.x
                  lng:currentLocation.y
-     withContentType:POST_TYPE_VIDEO
-   contentTypeString:@"audio/mpeg3"
-          contentExt:@"mp3"
+     withContentType:POST_TYPE_AUDIO
+//   contentTypeString:@"audio/mpeg3"
+//          contentExt:@"mp3"
+   contentTypeString:@"audio/mp4"
+          contentExt:@"m4a"
         onCompletion:^(RequestResult *result) {
             if (result.success){
                 [self dismissViewControllerAnimated:true completion:nil];
@@ -272,7 +274,7 @@ static const int POST_TYPE_URL = 5;
 {
     UIButton *button = (UIButton*)sender;
     
-    [self removeCurrentMedia];
+    //[self removeCurrentMedia];
     
     switch (button.tag) {
         case 0:
@@ -397,7 +399,7 @@ static const int POST_TYPE_URL = 5;
             self.media = nil;
             break;
         case POST_TYPE_AUDIO:
-            [self.myavp pause];
+            //[self.myavp pause];
             
             self.audioUrl = @"";
             break;

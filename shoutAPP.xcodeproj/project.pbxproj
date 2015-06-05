@@ -104,6 +104,10 @@
 		8925B4431B21791B00877919 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925B4411B21791B00877919 /* AudioPlayerViewController.m */; };
 		8925B4441B21791B00877919 /* AudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8925B4421B21791B00877919 /* AudioPlayerViewController.xib */; };
 		8925B4461B2185EC00877919 /* HelixMobileProducer_test1_MPEG2_Mono_CBR_40kbps_16000Hz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8925B4451B2185EC00877919 /* HelixMobileProducer_test1_MPEG2_Mono_CBR_40kbps_16000Hz.mp3 */; };
+		8925B4511B21E7B500877919 /* IQAudioRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925B44A1B21E7B500877919 /* IQAudioRecorderController.m */; };
+		8925B4521B21E7B500877919 /* audio_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925B44C1B21E7B500877919 /* audio_record.png */; };
+		8925B4531B21E7B500877919 /* audio_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8925B44D1B21E7B500877919 /* audio_record@2x.png */; };
+		8925B4541B21E7B500877919 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925B4501B21E7B500877919 /* SCSiriWaveformView.m */; };
 		89BE9C791B214BB4003E74B6 /* AudioPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */; };
 		89BE9C7A1B214BB4003E74B6 /* AudioPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */; };
 		89BE9C7B1B214BB4003E74B6 /* FakeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BE9C6D1B214BB4003E74B6 /* FakeVideoViewController.m */; };
@@ -288,6 +292,12 @@
 		8925B4411B21791B00877919 /* AudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewController.m; sourceTree = "<group>"; };
 		8925B4421B21791B00877919 /* AudioPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerViewController.xib; sourceTree = "<group>"; };
 		8925B4451B2185EC00877919 /* HelixMobileProducer_test1_MPEG2_Mono_CBR_40kbps_16000Hz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = HelixMobileProducer_test1_MPEG2_Mono_CBR_40kbps_16000Hz.mp3; sourceTree = "<group>"; };
+		8925B4491B21E7B500877919 /* IQAudioRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQAudioRecorderController.h; sourceTree = "<group>"; };
+		8925B44A1B21E7B500877919 /* IQAudioRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQAudioRecorderController.m; sourceTree = "<group>"; };
+		8925B44C1B21E7B500877919 /* audio_record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audio_record.png; sourceTree = "<group>"; };
+		8925B44D1B21E7B500877919 /* audio_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_record@2x.png"; sourceTree = "<group>"; };
+		8925B44F1B21E7B500877919 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
+		8925B4501B21E7B500877919 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
 		89BE9C691B214BB4003E74B6 /* AudioPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPostViewController.h; sourceTree = "<group>"; };
 		89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPostViewController.m; sourceTree = "<group>"; };
 		89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostViewController.xib; sourceTree = "<group>"; };
@@ -446,24 +456,25 @@
 		49824F391B1EB6230030F3AD /* PostingSystem */ = {
 			isa = PBXGroup;
 			children = (
+				8925B4481B21E7B500877919 /* IQAudioRecorderController */,
+				8925B4471B21979200877919 /* video */,
 				89BE9C9B1B21710B003E74B6 /* FakeAudioVideo */,
 				89BE9C861B2168AE003E74B6 /* audio */,
-				89BE9C691B214BB4003E74B6 /* AudioPostViewController.h */,
-				89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */,
-				89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */,
 				89BE9C6F1B214BB4003E74B6 /* PicturePostViewController.h */,
 				89BE9C701B214BB4003E74B6 /* PicturePostViewController.m */,
 				89BE9C711B214BB4003E74B6 /* PicturePostViewController.xib */,
-				89BE9C721B214BB4003E74B6 /* PostVC.h */,
-				89BE9C731B214BB4003E74B6 /* PostVC.m */,
-				89BE9C741B214BB4003E74B6 /* PostVC.xib */,
-				89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */,
 				89BE9C761B214BB4003E74B6 /* VideoPostViewController.h */,
 				89BE9C771B214BB4003E74B6 /* VideoPostViewController.m */,
 				89BE9C781B214BB4003E74B6 /* VideoPostViewController.xib */,
+				89BE9C691B214BB4003E74B6 /* AudioPostViewController.h */,
+				89BE9C6A1B214BB4003E74B6 /* AudioPostViewController.m */,
+				89BE9C6B1B214BB4003E74B6 /* AudioPostViewController.xib */,
 				8925B4401B21791B00877919 /* AudioPlayerViewController.h */,
 				8925B4411B21791B00877919 /* AudioPlayerViewController.m */,
 				8925B4421B21791B00877919 /* AudioPlayerViewController.xib */,
+				89BE9C721B214BB4003E74B6 /* PostVC.h */,
+				89BE9C731B214BB4003E74B6 /* PostVC.m */,
+				89BE9C741B214BB4003E74B6 /* PostVC.xib */,
 			);
 			path = PostingSystem;
 			sourceTree = "<group>";
@@ -719,6 +730,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8925B4471B21979200877919 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				89BE9C751B214BB4003E74B6 /* sample_iTunes.mov */,
+			);
+			name = video;
+			sourceTree = "<group>";
+		};
+		8925B4481B21E7B500877919 /* IQAudioRecorderController */ = {
+			isa = PBXGroup;
+			children = (
+				8925B4491B21E7B500877919 /* IQAudioRecorderController.h */,
+				8925B44A1B21E7B500877919 /* IQAudioRecorderController.m */,
+				8925B44B1B21E7B500877919 /* Resources */,
+				8925B44E1B21E7B500877919 /* SCSiriWaveformView */,
+			);
+			path = IQAudioRecorderController;
+			sourceTree = "<group>";
+		};
+		8925B44B1B21E7B500877919 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8925B44C1B21E7B500877919 /* audio_record.png */,
+				8925B44D1B21E7B500877919 /* audio_record@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8925B44E1B21E7B500877919 /* SCSiriWaveformView */ = {
+			isa = PBXGroup;
+			children = (
+				8925B44F1B21E7B500877919 /* SCSiriWaveformView.h */,
+				8925B4501B21E7B500877919 /* SCSiriWaveformView.m */,
+			);
+			path = SCSiriWaveformView;
+			sourceTree = "<group>";
+		};
 		8969CC651B16B8C600EAEFF5 /* MapViewTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,6 +891,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BE9C941B2168C4003E74B6 /* 3.wav in Resources */,
+				8925B4521B21E7B500877919 /* audio_record.png in Resources */,
 				49F85BE91B16ADBF0058F705 /* LaunchScreen.xib in Resources */,
 				49824FE41B1EB8D70030F3AD /* LoginVC.xib in Resources */,
 				49824FC81B1EB64C0030F3AD /* TextPostView.xib in Resources */,
@@ -865,6 +914,7 @@
 				49824FE81B1EB8D70030F3AD /* RegisterVC.xib in Resources */,
 				89BE9C831B214BB4003E74B6 /* VideoPostViewController.xib in Resources */,
 				49824F7B1B1EB6230030F3AD /* changephoto.png in Resources */,
+				8925B4531B21E7B500877919 /* audio_record@2x.png in Resources */,
 				49824FC61B1EB64C0030F3AD /* PostView.xib in Resources */,
 				8925B4441B21791B00877919 /* AudioPlayerViewController.xib in Resources */,
 				89BE9C931B2168C4003E74B6 /* 2.wav in Resources */,
@@ -915,6 +965,7 @@
 				49F85BDB1B16ADBF0058F705 /* AppDelegate.m in Sources */,
 				49824F661B1EB6230030F3AD /* MenuCustomCell.m in Sources */,
 				49824F7F1B1EB6230030F3AD /* TopBarView.m in Sources */,
+				8925B4541B21E7B500877919 /* SCSiriWaveformView.m in Sources */,
 				49824F811B1EB6230030F3AD /* UserLocation.m in Sources */,
 				040630F11B1EDDE600645A4F /* ImagePostView.m in Sources */,
 				49824F681B1EB6230030F3AD /* MenuViewController.m in Sources */,
@@ -946,6 +997,7 @@
 				499556051B1BC37A00C3D855 /* AnnotationView.m in Sources */,
 				49824FCC1B1EB64C0030F3AD /* Post.m in Sources */,
 				49824FE71B1EB8D70030F3AD /* RegisterVC.m in Sources */,
+				8925B4511B21E7B500877919 /* IQAudioRecorderController.m in Sources */,
 				49824FD01B1EB64C0030F3AD /* UsersPostsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,12 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "AudioPostViewController.h"
 #import "FakeAudioViewController.h"
+#import "IQAudioRecorderController.h"
 
-@interface AudioPostViewController ()<FakeAudioDelegate>
+@interface AudioPostViewController ()<FakeAudioDelegate,IQAudioRecorderControllerDelegate>{
+    
+    NSString *audioFilePath;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *pictureSourceTableView;
 
@@ -110,30 +114,10 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)doTakeAudio:(id)sender
 {
-    /*self.videoUrl = @"";
-    [self.player stop];
     
-    self.picker = [[UIImagePickerController alloc] init];
-    self.picker.delegate = self;
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self.picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        
-        self.picker.allowsEditing = NO;
-        self.picker.showsCameraControls = NO;
-        self.picker.cameraViewTransform = CGAffineTransformIdentity;
-        
-        if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear])
-        self.picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-        else
-        self.picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        
-        [self presentViewController:self.picker animated:YES completion:NULL];
-        
-        [self.picker startVideoCapture];
-    } else {
-        NSLog(@"Not device available");
-    }*/
+    IQAudioRecorderController *controller = [[IQAudioRecorderController alloc] init];
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)btnPlay:(id)sender {
@@ -152,7 +136,7 @@ finishedSavingWithError:(NSError *)error
     [self.myavp pause];
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [self.delegate didSelectAudio:self.audioUrl];
+        [self.delegate didSelectAudio:audioFilePath];
     }];
 }
 
@@ -199,5 +183,19 @@ finishedSavingWithError:(NSError *)error
     
     [self playAudioWithString:self.audioUrl];
 }
+
+#pragma mark - Audio recording delegate methods
+
+-(void)audioRecorderController:(IQAudioRecorderController *)controller didFinishWithAudioAtPath:(NSString *)filePath
+{
+    audioFilePath = filePath;
+    //buttonPlayAudio.enabled = YES;
+}
+
+-(void)audioRecorderControllerDidCancel:(IQAudioRecorderController *)controller
+{
+    //buttonPlayAudio.enabled = NO;
+}
+
 
 @end
