@@ -110,6 +110,8 @@ finishedSavingWithError:(NSError *)error
         
         [self presentViewController:self.picker animated:YES completion:NULL];
         
+        [self.picker showsCameraControls];
+        
          // TODO: Choose controls
         [self.picker startVideoCapture];
     } else {

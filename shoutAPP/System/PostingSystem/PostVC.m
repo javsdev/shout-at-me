@@ -131,9 +131,11 @@ static const int POST_TYPE_URL = 5;
             [self postVideo:self.videoUrl];
             break;
         case POST_TYPE_AUDIO: {
-            NSBundle *bundle = [NSBundle mainBundle];
-            NSString *path = [bundle pathForResource:self.audioUrl ofType:@"mp3"];
-            [self postAudio:path];
+            //NSBundle *bundle = [NSBundle mainBundle];
+            //NSString *path = [bundle pathForResource:self.audioUrl ofType:@"mp3"];
+            
+            // TODO: test
+            [self postAudio:self.audioUrl];
             
             break;
         }
