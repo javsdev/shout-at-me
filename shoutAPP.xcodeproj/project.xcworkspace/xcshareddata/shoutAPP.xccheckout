@@ -10,29 +10,31 @@
 	<string>shoutAPP</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</key>
-		<string>https://shoutapp.svn.beanstalkapp.com/shoutapp</string>
+		<key>CE86CEE2AB6B92D6D8E6D92709CFB6A078884A55</key>
+		<string>https://github.com/javsdev/shout-at-me</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>trunk/shoutapp/shoutAPP.xcodeproj</string>
+	<string>shoutAPP.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</key>
-		<string>../../../..</string>
+		<key>CE86CEE2AB6B92D6D8E6D92709CFB6A078884A55</key>
+		<string>../..</string>
 	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/javsdev/shout-at-me</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</string>
+	<string>CE86CEE2AB6B92D6D8E6D92709CFB6A078884A55</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1fb282de-3c1c-43c5-8385-ac0e446e1d8c</string>
+			<string>CE86CEE2AB6B92D6D8E6D92709CFB6A078884A55</string>
 			<key>IDESourceControlWCCName</key>
-			<string>shoutapp</string>
+			<string>shout-at-me</string>
 		</dict>
 	</array>
 </dict>
